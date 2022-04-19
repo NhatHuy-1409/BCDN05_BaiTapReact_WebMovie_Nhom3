@@ -2,7 +2,7 @@ import React from 'react'
 import './footer.css'
 export default function Footer(props) {
   return (
-    <div className='footer-movie'  style={{ backgroundImage: 'url(./Images/footer-bg.jpg)'}} >
+    <div className='footer-movie' style={{ backgroundImage: 'url(./Images/footer-bg.jpg)'}}>
 
       <footer className="px-4 divide-y dark:bg-coolGray-800 dark:text-coolGray-100  text-white shadow-xl">
         <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
