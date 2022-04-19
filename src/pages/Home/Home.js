@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Home() {
+export default function Home(props) {
   return (
-    <div>Home</div>
+    <div style={{height:'100vh'}}>Home</div>
   )
 }
