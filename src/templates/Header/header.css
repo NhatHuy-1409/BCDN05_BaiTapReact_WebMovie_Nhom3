@@ -1,0 +1,19 @@
+.header-movie{
+  height: 6rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  transition: height 0.3s ease, background-color 0.3s ease;
+}
+.header-movie.shrink{
+  height: 6rem;
+  background-color: #0f0f0f;
+ 
+}
+.header-movie.shrink .link-item{
+  color: white;
+}
+.header-movie .link-item {
+  color: black;
+}
