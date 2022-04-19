@@ -17,25 +17,23 @@ const CheckoutTemplateLazy = lazy(() => import('./templates/CheckoutTemlate/Chec
 export const history = createBrowserHistory()
 
 function App() {
-  
+
   return (
-    
+
     <Router history={history}>
       <div className="App">
         <Switch>
-          <UserTemplate  path='/login' Component={Login}/>
-          <UserTemplate  path='/register' Component={Register}/>
+          <HomeTemplate exact path='/home' component={Home} />
+          <HomeTemplate exact path='/bookingtickets' component={BookingTickets} />
+          <HomeTemplate exact path='/movies' component={Movies} />
+          <UserTemplate path='/login' Component={Login} />
+          <UserTemplate path='/register' Component={Register} />
 
           <Suspense fallback={<h1>............. load</h1>}>
             <CheckoutTemplateLazy path='/checkout/:id' Component={Checkout} />
           </Suspense>
 
-        <HomeTemplate exact path='/home' component={Home}/>
-        <HomeTemplate exact path='/bookingtickets' component={BookingTickets}/>
-        <HomeTemplate exact path='/movies' component={Movies}/>
-
-
-        <HomeTemplate exact path='/' component={Home}/>
+          <HomeTemplate exact path='/' component={Home} />
         </Switch>
       </div>
     </Router>
