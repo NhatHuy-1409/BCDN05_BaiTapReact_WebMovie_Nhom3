@@ -1,0 +1,25 @@
+@media screen and (max-width: 992px) {
+    .content {
+        display: block;
+    }
+    .content > div {
+        margin: auto;
+        width: 80%;
+        max-width: 100%;
+    }
+}
+@media screen and (max-width: 420px) {
+    header {
+        height: 168vh;
+    }
+    .content > div {
+        margin: auto;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+header{
+    background-attachment: fixed;
+    background-position: center;
+
+}
