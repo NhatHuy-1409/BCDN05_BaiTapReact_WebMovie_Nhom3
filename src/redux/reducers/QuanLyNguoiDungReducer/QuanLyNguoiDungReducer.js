@@ -17,9 +17,7 @@ export default (state = stateDefault, action) => {
             const { thongtinDangNhap } = action
             localStorage.setItem(USER_LOGIN, JSON.stringify(thongtinDangNhap))
             localStorage.setItem(TOKEN, JSON.stringify(thongtinDangNhap.accessToken))
-      
             return { ...state, userLogin: thongtinDangNhap }
-
         default:
             return { ...state }
     }
