@@ -8,18 +8,18 @@ import { layDanhSachPhimAction } from '../../redux/actions/QuanLyPhimAction';
 export default function Home(props) {
   const { arrfilm } = useSelector(state => state.QuanLyPhimReducer);
   const dispatch = useDispatch()
-  useEffect(() => { 
-    
+  useEffect(() => {
+
     const action = layDanhSachPhimAction()
     dispatch(action)
-   }, [])
+  }, [])
   //  console.log(arrfilm);
   return (
     <div  >
-     
+
       <section className="text-gray-600 body-font">
         <div className="container py-14 mx-auto">
-        <MultipleRowSlick arrfilm={arrfilm}/>
+          <MultipleRowSlick arrfilm={arrfilm} />
           {/* <div className="flex flex-wrap ">
             
           {renderFilm()}
