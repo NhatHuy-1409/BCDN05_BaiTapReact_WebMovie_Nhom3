@@ -2,12 +2,14 @@ import { Fragment } from "react"
 import { Route } from "react-router-dom"
 import { history } from "../../App"
 import Header from "../Header/Header"
+import logo from '../../assets/Images/logo-02-01.png'
+import './UserTemplate.css'
 export const UserTemplate = (props) => {
     const { Component, ...restProps } = props
 
     return <Route exact path={restProps.path} render={(propsRoute) => {
         return <Fragment>
-            <header className="py-5 bg-cover border-t-2 border-blue-600 h-screen " style={{ backgroundImage: 'linear-gradient(rgba(0, 0,0, 0.7), rgba(0, 0, 0, 0.7)), url("https://assets.nflxext.com/ffe/siteui/vlv3/8459cea4-79ab-4f27-9ef0-a7c92a30a9bb/223be4d2-5223-4bd0-90ea-289e4f470c5e/VN-vi-20220411-popsignuptwoweeks-perspective_alpha_website_large.jpg")' }
+            <header className="py-5 bg-cover border-t-2 border-blue-600 min-h-screen h-full " style={{ backgroundImage: 'linear-gradient(rgba(0, 0,0, 0.7), rgba(0, 0, 0, 0.7)), url("https://assets.nflxext.com/ffe/siteui/vlv3/8459cea4-79ab-4f27-9ef0-a7c92a30a9bb/223be4d2-5223-4bd0-90ea-289e4f470c5e/VN-vi-20220411-popsignuptwoweeks-perspective_alpha_website_large.jpg")' }
             }>
                 <div className="container w-full max-w-full	">
                     <Header {...propsRoute} />
@@ -27,11 +29,14 @@ export const UserTemplate = (props) => {
                                 <p className="text-white text-xl  sm:text-2xl  xl:text-3xl">
                                     Watch anywhere. Cancel anytime.
                                 </p>
-                                {/* <span className="text-white text-2xl md:text-3xl">Create New Account?<a href="#" className="text-white-900 ml-2 font-bold text-2xl md:text-3xl" onClick={() => { history.push('/register') }}>Sign Up</a></span> */}
+
                             </div>
-                            <div className="w-full md:max-w-md mt-6">
+
+                            <div className="w-full  md:max-w-md mt-6 relative flex md:h-full">
                                 <Component {...propsRoute} />
                             </div>
+
+
                         </div>
                     </div>
                 </div>

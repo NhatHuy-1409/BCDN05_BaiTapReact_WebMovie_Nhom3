@@ -2,4 +2,6 @@ export const TOKEN_MOVIE = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJ
 export const DOMAIN = 'https://movienew.cybersoft.edu.vn'
 export const GROUP_ID = 'GP04'
 
+export const TOKEN = 'accessToken'
+
 export const USER_LOGIN = 'USER_LOGIN'
