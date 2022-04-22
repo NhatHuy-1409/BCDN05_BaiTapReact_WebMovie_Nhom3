@@ -10,10 +10,10 @@ export const HomeTemplate = (props) => {
   return <Route exact path={props.path} render={(propsRoute) => {
     // Fragment: Gần giống div nhưng sẽ ko hiển thị trên giao diện thẻ
     return <Fragment>
-      <Header {...propsRoute}/>
-      {/* <HomeCarousel/> */}
+      <Header {...propsRoute} />
+      <HomeCarousel/>
       <props.component {...propsRoute} />
-      <Footer/>
+      <Footer />
     </Fragment>
   }} />
 }
