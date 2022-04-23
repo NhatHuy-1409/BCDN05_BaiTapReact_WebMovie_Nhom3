@@ -1,16 +1,19 @@
 import React, { useEffect } from 'react'
 import { Button, Table } from 'antd';
 import { Input, Space } from 'antd';
-import { AudioOutlined, SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
+import { layDanhSachPhimAction } from '../../../redux/actions/QuanLyPhimAction';
 
 const { Search } = Input;
 export default function Films() {
-     const { arrFilmDefautl } = useSelector(state => state.QuanLyNguoiDungReducer);
+
+     const { arrFilmDefault } = useSelector(state => state.QuanLyPhimReducer || {});
      const dispatch = useDispatch();
-     // useEffect(() => {
-     //      dispatch()
-     // }, [])
+     console.log(arrFilmDefault);
+     useEffect(() => {
+          dispatch(layDanhSachPhimAction())
+     }, [])
 
      const columns = [
           {
