@@ -16,6 +16,7 @@ import AdminTemplate from './templates/AdminTemplate/AdminTemplate';
 import DashBoard from './pages/Admin/DashBoard/DashBoard';
 import Films from './pages/Admin/Films/Films';
 import Showtime from './pages/Admin/Showtime/Showtime';
+import AddNew from './pages/Admin/Films/AddNew/AddNew';
 
 const CheckoutTemplateLazy = lazy(() => import('./templates/CheckoutTemlate/CheckoutTemplate'))
 export const history = createBrowserHistory()
@@ -36,6 +37,7 @@ function App() {
           <UserTemplate path='/register' Component={Register} />
           <AdminTemplate path='/admin' exact Component={DashBoard} />
           <AdminTemplate path='/admin/films' exact Component={Films} />
+          <AdminTemplate path='/admin/films/addnew' exact Component={AddNew} />
           <AdminTemplate path='/admin/user' exact Component={DashBoard} />
           <AdminTemplate path='/admin/showtime' exact Component={Showtime} />
           <Suspense fallback={<h1>............. load</h1>}>

@@ -82,9 +82,16 @@ export default function AdminTemplate(props) {
                               <Menu.Item key="1" icon={<UserOutlined />}>
                                    <NavLink to="/admin/user">User</NavLink>
                               </Menu.Item>
-                              <Menu.Item key="2" icon={<FileOutlined />}>
-                                   <NavLink to="/admin/films">Films</NavLink>
-                              </Menu.Item>
+
+                              <SubMenu key={"sub1"} icon={<FileOutlined />} title="film">
+                                   <Menu.Item key="2" icon={<FileOutlined />}>
+                                        <NavLink to="/admin/films">Films</NavLink>
+                                   </Menu.Item>
+                                   <Menu.Item key="4" icon={<FileOutlined />}>
+                                        <NavLink to="/admin/films/addnew">Add New</NavLink>
+                                   </Menu.Item>
+                              </SubMenu>
+
                               <Menu.Item key="3" icon={<DesktopOutlined />}>
                                    <NavLink to="/admin/showtime">Showtime</NavLink>
                               </Menu.Item>
