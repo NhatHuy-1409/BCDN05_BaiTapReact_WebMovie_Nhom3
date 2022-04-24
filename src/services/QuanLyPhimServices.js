@@ -1,17 +1,14 @@
 import { GROUP_ID } from "../util/setting/setting";
-import { baseService } from "./baseServices";
+import { http } from "../util/setting/settingAxios";
 
-export class QuanLyPhimServices extends baseService {
-    constructor(){
-        super()
+export class QuanLyPhimServices {
+
+    layDanhSachBanner = () => {
+        return http.get(`/api/QuanLyPhim/LayDanhSachBanner`)
     }
+    layDanhSachPhim = () => {
 
-     layDanhSachBanner = () =>{
-         return this.get(`/api/QuanLyPhim/LayDanhSachBanner`)
-     }
-     layDanhSachPhim = () =>{
-         
-         return this.get(`/api/QuanLyPhim/LayDanhSachPhim?maNhom=${GROUP_ID}`)
-     }
+        return http.get(`/api/QuanLyPhim/LayDanhSachPhim?maNhom=${GROUP_ID}`)
+    }
 }
 export const quanLyPhimServices = new QuanLyPhimServices()

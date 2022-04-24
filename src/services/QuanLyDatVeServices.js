@@ -1,16 +1,14 @@
+import { http } from "../util/setting/settingAxios";
 import { ThongTinDatVe } from "../_core/models/ThongTinDatVe";
-import { baseService } from "./baseServices";
 
-export class QuanLyDatVeServices extends baseService {
-    constructor(){
-        super()
+export class QuanLyDatVeServices {
+
+    layDanhSachPhongve = (maLichChieu) => {
+        return http.get(`api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`)
     }
-    layDanhSachPhongve = (maLichChieu) => { 
-        return this.get(`api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`)
-     }
-    datVe = (thongTinDatVe = new ThongTinDatVe()) => { 
-        return this.post('api/QuanLyDatVe/DatVe',thongTinDatVe)
-     }
+    datVe = (thongTinDatVe = new ThongTinDatVe()) => {
+        return http.post('api/QuanLyDatVe/DatVe', thongTinDatVe)
+    }
 
 }
 export const quanLyDatVeServices = new QuanLyDatVeServices()

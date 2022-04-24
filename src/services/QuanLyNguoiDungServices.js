@@ -1,17 +1,15 @@
-import { baseService } from "./baseServices";
+import { http } from "../util/setting/settingAxios";
 
-export class QuanLyNguoiDungServices extends baseService {
-    constructor() {
-        super()
-    }
+export class QuanLyNguoiDungServices  {
+
     dangNhap = (data) => {
-        return this.post('api/QuanLyNguoiDung/DangNhap', data)
+        return http.post('api/QuanLyNguoiDung/DangNhap', data)
     }
     dangKy = (data) => {
-        return this.post('api/QuanLyNguoiDung/DangKy', data)
+        return http.post('api/QuanLyNguoiDung/DangKy', data)
     }
     thongTinTaiKhoan = () => {
-        return this.post('api/QuanLyNguoiDung/ThongTinTaiKhoan')
+        return http.post('api/QuanLyNguoiDung/ThongTinTaiKhoan')
     }
 
 
