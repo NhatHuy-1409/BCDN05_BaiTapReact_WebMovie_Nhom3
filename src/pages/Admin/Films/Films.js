@@ -1,99 +1,95 @@
-import React, { useEffect } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { Button, Table } from 'antd';
 import { Input, Space } from 'antd';
-import { AudioOutlined, SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined, DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
+import { layDanhSachPhimAction } from '../../../redux/actions/QuanLyPhimAction';
+import { NavLink } from 'react-router-dom';
+import { history } from '../../../App';
 
 const { Search } = Input;
 export default function Films() {
-     const { arrFilmDefautl } = useSelector(state => state.QuanLyNguoiDungReducer);
+     const { arrfilmDefault } = useSelector(state => state.QuanLyPhimReducer);
      const dispatch = useDispatch();
-     // useEffect(() => {
-     //      dispatch()
-     // }, [])
+     console.log(arrfilmDefault);
+     useEffect(() => {
+          dispatch(layDanhSachPhimAction())
+     }, [])
 
      const columns = [
           {
-               title: 'Name',
-               dataIndex: 'name',
-               filters: [
-                    {
-                         text: 'Joe',
-                         value: 'Joe',
-                    },
-                    {
-                         text: 'Jim',
-                         value: 'Jim',
-                    },
-                    {
-                         text: 'Submenu',
-                         value: 'Submenu',
-                         children: [
-                              {
-                                   text: 'Green',
-                                   value: 'Green',
-                              },
-                              {
-                                   text: 'Black',
-                                   value: 'Black',
-                              },
-                         ],
-                    },
-               ],
-               // specify the condition of filtering result
-               // here is that finding the name started with `value`
-               onFilter: (value, record) => record.name.indexOf(value) === 0,
-               sorter: (a, b) => a.name.length - b.name.length,
-               sortDirections: ['descend'],
+               title: 'Mã Phim',
+               dataIndex: 'maPhim',
+               // value: (text, object) => { return <span>{text}</span> },
+               onFilter: (value, record) => record.maPhim.indexOf(value) === 0,
+               sorter: (a, b) => a.maPhim - b.maPhim,
+               sortDirections: ['descend', 'ascend'],
+               width: '15%'
           },
           {
-               title: 'Age',
-               dataIndex: 'age',
-               defaultSortOrder: 'descend',
-               sorter: (a, b) => a.age - b.age,
+               title: 'Hình Ảnh',
+               dataIndex: 'hinhAnh',
+               render: (text, film, index) => {
+                    return <Fragment>
+                         <img src={film.hinhAnh} alt={film.hinhAnh} width={50} height={50} onError={(e) => { e.target.onError = null; e.target.src = `https://picsum.photos/id/${index}/50/50` }} />
+                    </Fragment>
+               },
+               width: '15%'
+               // defaultSortOrder: 'descend',
+               // sorter: (a, b) => a.hinhAnh - b.hinhAnh,
           },
           {
-               title: 'Address',
-               dataIndex: 'address',
-               filters: [
-                    {
-                         text: 'London',
-                         value: 'London',
-                    },
-                    {
-                         text: 'New York',
-                         value: 'New York',
-                    },
-               ],
+               title: 'Tên Phim',
+               dataIndex: 'tenPhim',
                onFilter: (value, record) => record.address.indexOf(value) === 0,
+               sorter: (a, b) => {
+                    let tenPhimA = a.tenPhim.toLowerCase().trim();
+                    let tenPhimB = b.tenPhim.toLowerCase().trim();
+
+                    if (tenPhimA > tenPhimB) {
+                         return 1;
+                    }
+                    return -1
+               },
+
+               sortDirections: ['descend', 'ascend'],
+               width: '25%'
+          },
+          {
+               title: 'Mô Tả',
+               dataIndex: 'moTa',
+               // onFilter: (value, record) => record.address.indexOf(value) === 0,
+               // sorter: (a, b) => {
+               //      let moTaA = a.moTa.toLowerCase().trim();
+               //      let moTaB = b.moTa.toLowerCase().trim();
+
+               //      if (moTaA > moTaB) {
+               //           return 1;
+               //      }
+               //      return -1
+               // },
+               render: (test, film) => {
+                    return <Fragment>
+                         {film.moTa.length > 50 ? film.moTa.substr(0, 50) + '...' : film.moTa}
+                    </Fragment>
+               },
+               sortDirections: ['descend', 'ascend'],
+               width: '25%'
+          },
+          {
+               title: 'Hành Động',
+               dataIndex: 'hanhDong',
+               render: (test, film) => {
+                    return <Fragment>
+                         <NavLink className="mr-5 p-2 text-2xl" to="/"><EditOutlined style={{ color: "blue" }} /></NavLink>
+                         <NavLink className="text-2xl" to="/"><DeleteOutlined style={{ color: "red" }} /></NavLink>
+                    </Fragment>
+               },
+               sortDirections: ['descend', 'ascend'],
+               width: '25%'
           },
      ];
-     const data = [
-          {
-               key: '1',
-               name: 'John Brown',
-               age: 32,
-               address: 'New York No. 1 Lake Park',
-          },
-          {
-               key: '2',
-               name: 'Jim Green',
-               age: 42,
-               address: 'London No. 1 Lake Park',
-          },
-          {
-               key: '3',
-               name: 'Joe Black',
-               age: 32,
-               address: 'Sidney No. 1 Lake Park',
-          },
-          {
-               key: '4',
-               name: 'Jim Red',
-               age: 32,
-               address: 'London No. 2 Lake Park',
-          },
-     ];
+     const data = arrfilmDefault;
      const onSearch = value => console.log(value);
      function onChange(pagination, filters, sorter, extra) {
           console.log('params', pagination, filters, sorter, extra);
@@ -101,7 +97,9 @@ export default function Films() {
      return (
           <div>
                <h3 className='text-4xl'>Quản lí phim</h3>
-               <Button className='mb-5'>Thêm Phim</Button>
+               <Button className='mb-5' onClick={() => {
+                    history.push("/admin/films/addnew");
+               }}>Thêm Phim</Button>
                <Search className='mb-5'
                     placeholder="input search text"
                     allowClear
