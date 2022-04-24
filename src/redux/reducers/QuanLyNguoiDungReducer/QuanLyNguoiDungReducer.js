@@ -1,5 +1,5 @@
 import { TOKEN, USER_LOGIN } from "../../../util/setting/setting"
-import { DANG_NHAP_ACTION } from "../../types/QuanLyNguoiDungtype"
+import { DANG_NHAP_ACTION, SET_THONG_TIN_TAI_KHOAN_ACTION } from "../../types/QuanLyNguoiDungtype"
 import { history } from "../../../App";
 
 let user = {}
@@ -7,7 +7,8 @@ if (localStorage.getItem(USER_LOGIN)) {
     user = JSON.parse(localStorage.getItem(USER_LOGIN))
 }
 const stateDefault = {
-    userLogin: user
+    userLogin: user,
+    thongTinTaiKhoan:{}
 }
 
 export default (state = stateDefault, action) => {
@@ -19,7 +20,9 @@ export default (state = stateDefault, action) => {
             localStorage.setItem(TOKEN, JSON.stringify(thongtinDangNhap.accessToken))
       
             return { ...state, userLogin: thongtinDangNhap }
-
+        case SET_THONG_TIN_TAI_KHOAN_ACTION:
+            state.thongTinTaiKhoan = action.thongTinTaiKhoan
+            return {...state}
         default:
             return { ...state }
     }

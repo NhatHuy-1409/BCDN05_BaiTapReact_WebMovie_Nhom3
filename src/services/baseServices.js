@@ -1,5 +1,5 @@
 import axios from "axios";
-import { DOMAIN,TOKEN_MOVIE } from "../util/setting/setting";
+import { DOMAIN,TOKEN,TOKEN_MOVIE } from "../util/setting/setting";
 export class baseService {
 
     put = (url, model) => {
@@ -15,9 +15,11 @@ export class baseService {
             url: `${DOMAIN}/${url}`,
             method: 'post',
             data: model,
-            headers: { 'TokenCybersoft': TOKEN_MOVIE }
+            // headers: { 'Authorization': 'Bearer ' + localStorage.getItem(TOKEN).slice(1,-1) ,'TokenCybersoft': TOKEN_MOVIE }
+            headers: { 'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem(TOKEN)),'TokenCybersoft': TOKEN_MOVIE }
         })
     }
+
     get = (url) => {
         return axios({
             url: `${DOMAIN}/${url}`,

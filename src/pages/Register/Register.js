@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { history } from '../../App'
-import { useFormik } from 'formik'
+import { Formik, useFormik } from 'formik'
 import { GROUP_ID } from '../../util/setting/setting'
 import { useDispatch } from 'react-redux'
 import { dangKy } from '../../redux/actions/QuanLyNguoiDungAction/QuanLyNguoiDungAction'
@@ -34,10 +34,11 @@ export default function Register() {
             console.log(values);
             dispatch(dangKy(values))
         },
-    })
 
+    })
     return (
         <div className="card bg-white shadow-md rounded-lg px-4 py-4 mb-6  w-full top-0 right-0">
+
             <form action="#" onSubmit={formik.handleSubmit}>
                 <div className="flex items-center justify-center">
                     <h2 className=" text-xl md:text-2xl font-bold tracking-wide">
@@ -58,7 +59,7 @@ export default function Register() {
                 ) : <div className='mb-4'></div>}
 
                 <div className='relative'>
-                    <input type={passShown ? 'text' : 'password'} name='matKhau' className="rounded px-4 w-full py-1.5 bg-gray-200  border border-gray-400  text-gray-700 placeholder-gray-700 focus:bg-white focus:outline-none" placeholder="Password*" onChange={formik.handleChange} onBlur={formik.handleBlur}/>
+                    <input value={formik.values.matKhau} type={passShown ? 'text' : 'password'} name='matKhau' className="rounded px-4 w-full py-1.5 bg-gray-200  border border-gray-400  text-gray-700 placeholder-gray-700 focus:bg-white focus:outline-none" placeholder="Password*" onChange={formik.handleChange} onBlur={formik.handleBlur} />
                     {passShown ?
                         <i className='absolute right-2 top-1.5 cursor-pointer' onClick={() => { setPassShown(!passShown) }}>{eye}</i> :
                         <i className='absolute right-2 top-1.5 cursor-pointer' onClick={() => { setPassShown(!passShown) }}>{eyeSlash}</i>}
@@ -81,8 +82,10 @@ export default function Register() {
                 <div className="flex items-center justify-between">
                     {/* <a href="#" className="text-gray-600">Forget Password?</a> */}
                     <button type='submit' className="bg-red-600 text-gray-200  px-2 py-1.5 rounded w-full" >Sign Up</button>
+
                 </div>
             </form>
+
         </div>
     )
 }
