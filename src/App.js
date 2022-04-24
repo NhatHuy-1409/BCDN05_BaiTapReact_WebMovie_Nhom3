@@ -27,6 +27,8 @@ function App() {
     <Router history={history}>
       <div className="App">
         <Switch>
+        <HomeTemplate exact path='/' component={Home} />
+
           <HomeTemplate exact path='/home' component={Home} />
           <HomeTemplate exact path='/bookingtickets' component={BookingTickets} />
           <HomeTemplate exact path='/movies' component={Movies} />
@@ -40,7 +42,6 @@ function App() {
             <CheckoutTemplateLazy path='/checkout/:id' Component={Checkout} />
           </Suspense>
 
-          <HomeTemplate exact path='/' component={Home} />
         </Switch>
       </div>
     </Router>
