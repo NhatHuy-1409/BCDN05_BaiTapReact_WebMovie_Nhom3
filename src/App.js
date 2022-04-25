@@ -16,6 +16,7 @@ import AdminTemplate from './templates/AdminTemplate/AdminTemplate';
 import DashBoard from './pages/Admin/DashBoard/DashBoard';
 import Films from './pages/Admin/Films/Films';
 import Showtime from './pages/Admin/Showtime/Showtime';
+import Loading from './components/Loading/Loading';
 
 const CheckoutTemplateLazy = lazy(() => import('./templates/CheckoutTemlate/CheckoutTemplate'))
 export const history = createBrowserHistory()
@@ -26,6 +27,7 @@ function App() {
 
     <Router history={history}>
       <div className="App">
+        <Loading></Loading>
         <Switch>
         <HomeTemplate exact path='/' component={Home} />
 

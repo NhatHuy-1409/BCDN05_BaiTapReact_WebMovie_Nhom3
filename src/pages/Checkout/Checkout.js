@@ -4,7 +4,7 @@ import { datVe, layDanhSachPhongve } from '../../redux/actions/QuanLyDatVeAction
 import style from './Checkout.module.css'
 import './Checkout.css'
 import { CloseOutlined, UserOutlined } from '@ant-design/icons'
-import { DAT_VE_ACTION } from '../../redux/types/QuanLyDatVeType'
+import { CHUYEN_TAB, DAT_VE_ACTION } from '../../redux/types/QuanLyDatVeType'
 import { Fragment } from 'react'
 import _ from 'lodash'
 import { ThongTinDatVe } from '../../_core/models/ThongTinDatVe'
@@ -142,7 +142,7 @@ function KetQuaDatVe() {
           <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src={ve.hinhAnh} />
           <div className="flex-grow">
             <h2 className="text-gray-900 title-font font-medium">{ve.tenPhim}</h2>
-            <p className="text-gray-500">Giờ chiếu:{ moment(ve.ngayDat).format('hh:mm A')} - Ngày chiếu:{moment(ve.ngayDat).format('DD-MM-YYYY')}</p>
+            <p className="text-gray-500">Giờ chiếu:{moment(ve.ngayDat).format('hh:mm A')} - Ngày chiếu:{moment(ve.ngayDat).format('DD-MM-YYYY')}</p>
             <p>Địa điểm: {seats.tenHeThongRap} </p>
             <p>Tên rạp: {seats.tenCumRap} - ghế: {ve.danhSachGhe.map(ghe => <span>{ghe.tenGhe} </span>)}</p>
           </div>
@@ -166,23 +166,26 @@ function KetQuaDatVe() {
             </div>
           </div>
         </div> */}
-          {renderTicketItem()}
+        {renderTicketItem()}
       </div>
     </div>
   </section>
 
 }
 
-
 const { TabPane } = Tabs;
-
-function callback(key) {
-  console.log(key);
-}
 export default function (props) {
+  const { tabActive } = useSelector(state => state.QuanLyDatVeReducer)
+  let dispatch = useDispatch()
+  console.log(tabActive);
   return <div className='p-5'>
-    <Tabs defaultActiveKey="1" onChange={callback} >
-      <TabPane tab="01 CHỌN GHẾ & THANH TOÁN" key="1">
+    <Tabs defaultActiveKey='1' activeKey={tabActive} onChange={(key) => {
+      dispatch({
+        type: CHUYEN_TAB,
+        tabNumber: key
+      })
+    }} >
+      <TabPane tab="01 CHỌN GHẾ & THANH TOÁN" key="1" >
         <Checkout {...props} />
       </TabPane>
       <TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
