@@ -1,6 +1,11 @@
 import React from 'react'
+import _ from 'lodash'
+import { useSelector } from 'react-redux'
 import './footer.css'
 export default function Footer(props) {
+  const { heThongRapChieu } = useSelector(state => state.QuanLyRapReducer)
+  const arrHeThongRap = _.map(heThongRapChieu, (heThongRap) => _.pick(heThongRap, ['maHeThongRap', 'tenHeThongRap', 'logo']));
+
   return (
     <div className='footer-movie' style={{ backgroundImage: 'url(./Images/footer-bg.jpg)' }}>
 
@@ -15,25 +20,22 @@ export default function Footer(props) {
           </div>
           <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
             <div className="space-y-3">
-              <h3 className="tracking-wide uppercase text-white">Product</h3>
-              <ul className="space-y-1">
-                <li>
-                  <a href="#" className='hover:text-indigo-600 text-white text-base'>Link</a>
-                </li>
-                <li>
-                  <a href="#" className='hover:text-indigo-600 text-white text-base'>Link</a>
-                </li>
-                <li>
-                  <a href="#" className='hover:text-indigo-600 text-white text-base'>Link</a>
-                </li>
-                <li>
-                  <a href="#" className='hover:text-indigo-600 text-white text-base'>Link</a>
-                </li>
-              </ul>
+              <h3 className="tracking-wide uppercase text-white">PARTNER</h3>
+              <div className="grid grid-cols-3" >
+                {arrHeThongRap.map((htr, index) => {
+                  // console.log(htr);
+                  return <div key={index} className='py-2'>
+                    <img src={htr.logo} alt="" style={{ width: '50px' }} />
+                    {/* <a href="#" className='hover:text-indigo-600 text-white text-base'>Link</a> */}
+                  </div>
+                })}
+
+
+              </div>
             </div>
 
 
-            <div className="space-y-3">
+            <div className="space-y-5 mx-36 row-span-2">
               <div className="uppercase dark:text-coolGray-50">Social media</div>
               <div className="flex justify-start space-x-3 " >
                 <a href="#" title="Facebook" className="flex items-center p-1 " style={{ color: 'white' }}>
