@@ -1,4 +1,4 @@
-import { SET_DANH_SACH_PHIM, SET_FILM_DANG_CHIEU, SET_FILM_SAP_CHIEU } from "../../types/QuanLyPhimType"
+import { SET_DANH_SACH_PHIM, SET_FILM_DANG_CHIEU, SET_FILM_SAP_CHIEU, SET_THONG_TIN_FILM } from "../../types/QuanLyPhimType"
 
 const stateDefault = {
   arrfilm: [
@@ -20,33 +20,39 @@ const stateDefault = {
   ],
   dangChieu: true,
   sapChieu: true,
-  arrfilmDefault:[]
+  arrfilmDefault: [],
+  thongTinPhim: {}
 }
 
 export const QuanLyPhimReducer = (state = stateDefault, action) => {
   switch (action.type) {
 
-  case SET_DANH_SACH_PHIM : {
-    state.arrfilm = action.arrfilm
-    state.arrfilmDefault = state.arrfilm
-    return {...state}
-  }
-  case SET_FILM_DANG_CHIEU: {
-    state.dangChieu = !state.dangChieu;
+    case SET_DANH_SACH_PHIM: {
+      state.arrfilm = action.arrfilm
+      state.arrfilmDefault = state.arrfilm
+      return { ...state }
+    }
+    case SET_FILM_DANG_CHIEU: {
+      state.dangChieu = !state.dangChieu;
 
-    state.arrfilm = state.arrfilmDefault.filter(film => film.dangChieu === state.dangChieu)
-    return {...state}
-  }
-  
-  case SET_FILM_SAP_CHIEU: {
-    state.sapChieu = !state.sapChieu;
+      state.arrfilm = state.arrfilmDefault.filter(film => film.dangChieu === state.dangChieu)
+      return { ...state }
+    }
 
-    state.arrfilm = state.arrfilmDefault.filter(film => film.sapChieu===state.sapChieu)
-    return {...state}
-  }
+    case SET_FILM_SAP_CHIEU: {
+      state.sapChieu = !state.sapChieu;
+
+      state.arrfilm = state.arrfilmDefault.filter(film => film.sapChieu === state.sapChieu)
+      return { ...state }
+    }
+    case SET_THONG_TIN_FILM: {
+      state.thongTinPhim = action.thongTinPhim;
+
+      return { ...state }
+    }
 
 
-  default:
-    return {...state}
+    default:
+      return { ...state }
   }
 }
