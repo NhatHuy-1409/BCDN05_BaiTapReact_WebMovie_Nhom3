@@ -80,7 +80,9 @@ export default function Films() {
                                    dispatch(xoaPhimAction(film.maPhim));
                               }
                          }}><DeleteOutlined style={{ color: "red" }} /></span>
-                         <NavLink key={3} className="mr-5 p-2 text-2xl" to={`/admin/films/showtime/${film.maPhim}`}><CalendarOutlined style={{ color: "blue" }} /></NavLink>
+                         <NavLink key={3} className="mr-5 p-2 text-2xl" to={`/admin/films/showtime/${film.maPhim}`} onClick={() => {
+                              localStorage.setItem('filmParams', JSON.stringify(film));
+                         }}><CalendarOutlined style={{ color: "blue" }} /></NavLink>
                     </Fragment>
                },
                sortDirections: ['descend', 'ascend'],
@@ -97,6 +99,8 @@ export default function Films() {
      function onChange(pagination, filters, sorter, extra) {
           console.log('params', pagination, filters, sorter, extra);
      }
+
+
      return (
           <div>
                <h3 className='text-4xl'>Quản lí phim</h3>
