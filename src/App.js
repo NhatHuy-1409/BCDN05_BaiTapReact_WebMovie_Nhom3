@@ -40,7 +40,7 @@ function App() {
           <AdminTemplate path='/admin/films' exact Component={Films} />
           <AdminTemplate path='/admin/user' exact Component={DashBoard} />
           <AdminTemplate path='/admin/showtime' exact Component={Showtime} />
-          <Suspense fallback={<h1>............. load</h1>}>
+          <Suspense fallback={<Loading/>}>
             <CheckoutTemplateLazy path='/checkout/:id' Component={Checkout} />
           </Suspense>
 

@@ -1,6 +1,7 @@
+import { connection } from "../../..";
 import { history } from "../../../App";
 import { quanLyDatVeServices } from "../../../services/QuanLyDatVeServices";
-import { CHUYEN_TAB, DAT_VE_ACTION, DAT_VE_HOAN_TAT, LAY_DANH_SACH_PHONG_VE_ACTION } from "../../types/QuanLyDatVeType";
+import { CHUYEN_TAB, DAT_GHE_ACTION, DAT_VE_ACTION, DAT_VE_HOAN_TAT, LAY_DANH_SACH_PHONG_VE_ACTION } from "../../types/QuanLyDatVeType";
 import { hideLoadingAction, playLoadingAction } from "../LoadingAction/LoadingAction";
 
 
@@ -41,3 +42,4 @@ export const datVe = (thongTinDatVe) => {
         }
     }
 }
+

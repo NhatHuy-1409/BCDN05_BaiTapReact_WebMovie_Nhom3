@@ -4,7 +4,7 @@ import { CHUYEN_TAB, DAT_VE_ACTION, DAT_VE_HOAN_TAT, LAY_DANH_SACH_PHONG_VE_ACTI
 const stateDefault = {
     chiTietPhongVe: new ThongTinLichChieu(),
     dsGheDangDat: [],
-    tabActive : '1'
+    tabActive : '1',
 }
 
 export default (state = stateDefault, action) => {
