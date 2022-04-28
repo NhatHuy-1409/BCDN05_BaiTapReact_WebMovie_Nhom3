@@ -8,7 +8,6 @@ import '../../components/button/button.css'
 
 
 
-
 const MultipleRowSlick = (props) => {
   const dispatch = useDispatch()
   const renderFilm = () => {
