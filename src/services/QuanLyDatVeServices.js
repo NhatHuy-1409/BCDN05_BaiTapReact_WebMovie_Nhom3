@@ -1,3 +1,4 @@
+import { get } from "lodash";
 import { http } from "../util/setting/settingAxios";
 import { ThongTinDatVe } from "../_core/models/ThongTinDatVe";
 
@@ -8,6 +9,9 @@ export class QuanLyDatVeServices {
     }
     datVe = (thongTinDatVe = new ThongTinDatVe()) => {
         return http.post('api/QuanLyDatVe/DatVe', thongTinDatVe)
+    }
+    taoLichChieu = (thongTinLichChieu) => {
+        return http.post(`/api/QuanLyDatVe/TaoLichChieu`, thongTinLichChieu)
     }
 
 }
