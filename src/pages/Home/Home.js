@@ -22,7 +22,7 @@ export default function Home(props) {
     <div  >
 
       <section className="text-gray-600 body-font">
-        <div className="container py-14 mx-auto">
+        <div className="container pb-8 mx-auto">
           <MultipleRowSlick arrfilm={arrfilm} />
           {/* <div className="flex flex-wrap ">
             

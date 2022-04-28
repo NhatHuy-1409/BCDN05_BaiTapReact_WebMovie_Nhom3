@@ -1,31 +1,23 @@
 import React from 'react'
 import './Film_Flip.css'
 
-import { PlayCircleOutlined } from '@ant-design/icons'
+import { StarFilled } from '@ant-design/icons'
 export default function Film_Flip(props) {
   const { phim } = props;
   return (
-    <div className="flip-card mx-4">
-      <div className="flip-card-inner">
-        <div className="flip-card-front">
 
-          <img src={phim.hinhAnh} alt="Avatar" style={{ width: 300, height: 300 }} />
-        </div>
-        <div className="flip-card-back" style={{ position: 'relative', backgroundColor: 'rgba(0,0,0,.9)' }}>
-          <div style={{ position: 'absolute', top: '0', left: '0' }}>
-            <img src={phim.hinhAnh} alt="Avatar" style={{ width: 300, height: 300 }} />    </div>
-          <div className="w-full h-full" style={{ position: 'absolute', backgroundColor: 'rgba(0,0,0,.5)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <div>
-              {/* <div className='rounded-full cursor-pointer' ><PlayCircleOutlined style={{fontSize: '50px'}}/></div> */}
-              <div className='rounded-full cursor-pointer' ><PlayCircleOutlined style={{ fontSize: '50px' }} /></div>
-              <div className='text-2xl mt-2 font-bold'>{phim.tenPhim}</div>
-            </div>
-          </div>
-        </div>
+    <div className="card">
+      <div className="img1" style={{ backgroundImage: `url(${phim.hinhAnh})` }} />
+      <div className="img2" style={{ backgroundImage: `url(${phim.hinhAnh})` }} />
+      <div className="title">{phim.tenPhim}</div>
+      <div className="btn__card">
+        <div className='btnbuy' >đặt vé</div>
       </div>
-      <div className=" mt-2 text-white font-bold text-center cursor-pointer py-2 bg-indigo-600 hover:text-white hover:bg-indigo-700">Đặt vé</div>
+      <div className="btn__play">
+        <div className="play-btn" href="#"></div>
+      </div>
+      <div className="views flex items-center">{phim.danhGia} <StarFilled className='ml-2' /> </div>
     </div>
-
 
 
 

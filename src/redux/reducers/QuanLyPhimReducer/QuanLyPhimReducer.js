@@ -18,8 +18,8 @@ const stateDefault = {
     },
 
   ],
-  dangChieu: true,
-  sapChieu: true,
+  dangChieu: false,
+  sapChieu: false,
   arrfilmDefault:[]
 }
 
@@ -33,6 +33,7 @@ export const QuanLyPhimReducer = (state = stateDefault, action) => {
   }
   case SET_FILM_DANG_CHIEU: {
     state.dangChieu = !state.dangChieu;
+    state.sapChieu = !state.sapChieu;
 
     state.arrfilm = state.arrfilmDefault.filter(film => film.dangChieu === state.dangChieu)
     return {...state}
@@ -40,6 +41,7 @@ export const QuanLyPhimReducer = (state = stateDefault, action) => {
   
   case SET_FILM_SAP_CHIEU: {
     state.sapChieu = !state.sapChieu;
+    state.dangChieu = !state.dangChieu;
 
     state.arrfilm = state.arrfilmDefault.filter(film => film.sapChieu===state.sapChieu)
     return {...state}

@@ -34,21 +34,21 @@ export default function Header(props) {
           </a>
           <ul className="items-stretch hidden space-x-3 lg:flex">
             <li className="flex">
-              <NavLink to='/home' className="link-item flex text-lg font-bold items-center px-4 -mb-1 dark:border-transparent dark:text-violet-400 dark:border-violet-400  hover:text-indigo-600" activeClassName='border-b-2  border-indigo-600'>Home</NavLink>
+              <NavLink to='/home' className="link-item flex text-lg font-bold items-center px-4 -mb-1 dark:border-transparent   color-pri" activeClassName='border-b-2  border-active'>Home</NavLink>
             </li>
 
             <li className="flex">
-              <NavLink to='/movies' className="link-item flex text-lg font-bold items-center px-4 -mb-1 dark:border-transparent dark:text-violet-400 dark:border-violet-400  hover:text-indigo-600" activeClassName='border-b-2  border-indigo-600'>Movies</NavLink>
+              <NavLink to='/movies' className="link-item flex text-lg font-bold items-center px-4 -mb-1 dark:border-transparent   " activeClassName='border-b-2  border-active '>Movies</NavLink>
             </li>
 
             <li className="flex">
-              <NavLink to='/bookingtickets' className="link-item flex text-lg font-bold items-center px-4 -mb-1 dark:border-transparent dark:text-violet-400 dark:border-violet-400  hover:text-indigo-600" activeClassName='border-b-2  border-indigo-600'>Booking Ticket</NavLink>
+              <NavLink to='/bookingtickets' className="link-item flex text-lg font-bold items-center px-4 -mb-1 dark:border-transparent   " activeClassName='border-b-2  border-active'>Booking Ticket</NavLink>
             </li>
 
           </ul>
           <div className="items-center flex-shrink-0 hidden lg:flex">
-            <NavLink to='/login' className=" link-item self-center px-8 py-3 rounded text-base font-bold" activeClassName='border-b-2  border-indigo-600'>Sign in</NavLink>
-            <NavLink to='/register' className="self-center text-black px-6 py-2 font-semibold rounded dark:bg-violet-400 dark:text-coolGray-900 text-lg font-bold bg-indigo-600 hover:text-white hover:bg-indigo-700" activeClassName='border-b-2  border-indigo-600'>Sign up</NavLink>
+            <NavLink to='/login' className=" link-item self-center px-8 py-3 rounded text-base font-bold" activeClassName='border-b-2   border-active'>Sign in</NavLink>
+            <NavLink to='/register' className="btn first" activeClassName='border-b-2   border-active'>Sign up</NavLink>
 
           </div>
           <button className="p-4 lg:hidden">

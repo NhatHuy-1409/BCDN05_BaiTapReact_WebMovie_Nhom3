@@ -7,9 +7,10 @@
   /* width: 100% !important; */
 }
 
-/* .active_Film{
-  @apply bg-gray-800: text-white;
+
+.active_Film{
+  background-color: rgba(255, 0, 128, 0.498);
 }
 .non_active_Film{
-  @apply bg-white: text-gray-800;
-} */
+  background-color: transparent
+}

@@ -40,22 +40,21 @@ export default class HomeMenu extends React.PureComponent {
             }
               key={index}>
               {cumRap.danhSachPhim.map((phim, index) => {
-                return <Fragment  key={index}>
+                return <Fragment key={index}>
                   <div className='flex my-5 '>
                     <img src={phim.hinhAnh} alt="" style={{ height: '90px', width: '90px' }} className='object-cover rounded-md' />
                     <div className='ml-4'>
 
-                      <h1 className=' text-indigo-700 text-xl'>{phim.tenPhim}</h1>
+                      <h1 className=' text-indigo-700 text-xl uppercase'>{phim.tenPhim}</h1>
                       <p className='opacity-60 text-sm font-semibold'>{cumRap.diaChi}</p>
 
                       <div className="grid grid-cols-7 gap-5">
-                      
-                      {phim.lstLichChieuTheoPhim?.slice(0,14).map((lichChieu, index) => {
-                        return <NavLink to='/' key={index} className='font-bold bg-indigo-600 hover:text-white hover:bg-indigo-700 text-black py-2 px-2 rounded-md'>
 
-                          {moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}
-                        </NavLink>
-                      })}
+                        {phim.lstLichChieuTheoPhim?.slice(0, 14).map((lichChieu, index) => {
+                          return <NavLink to='/' key={index} className='font-bold background hover:text-white hover:background text-black py-2 px-2 rounded-md'>
+                            {moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}
+                          </NavLink>
+                        })}
                       </div>
 
                     </div>
@@ -73,7 +72,7 @@ export default class HomeMenu extends React.PureComponent {
   }
 
   render() {
-    console.log(this.props, 'rap');
+
     const { tabPosition } = this.state
     return (
 

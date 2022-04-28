@@ -22,8 +22,8 @@
   border: none;
 }
 .header-movie .link-item:hover{
-  --tw-text-opacity: 1;
-    color: rgb(79 70 229 / var(--tw-text-opacity));
+
+    color: rgba(255, 0, 128);
 }
 
 

@@ -8,13 +8,9 @@ export const getCarouselAction =  () =>{
   return async (dispatch) =>{
 
     try {
-      const result = await quanLyPhimServices.layDanhSachBanner();
-      // const result = await axios({
-      //   url: `${DOMAIN}/api/QuanLyPhim/LayDanhSachBanner`,
-      //   method: 'get',
-      //   headers: { 'TokenCybersoft': TOKEN_MOVIE }
-        
-      // })
+      // const result = await quanLyPhimServices.layDanhSachBanner();
+      const result = await quanLyPhimServices.layDanhSachPhim();
+
       dispatch({
         type: SET_CAROUSEL,
         arrImgCarousel: result.data.content
