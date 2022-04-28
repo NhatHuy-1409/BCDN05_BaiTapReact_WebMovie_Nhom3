@@ -11,31 +11,26 @@
     width: 30px;
     height: 30px;
     margin: 5px;
-    border: 3px solid #d1c9c9;
-    border-bottom: 6px solid #d1c9c9;
+    /* border: 3px solid #d1c9c9; */
+    /* border-bottom: 6px solid #d1c9c9; */
     font-size: 1.1em;
     border-radius: 5px;
     cursor: pointer;
-    background-color: transparent;
+    background-color: #333431;
     color: #fff;
 }
 .gheDaDat {
-    border-color: #00086f !important ;
-    color: #00086f !important ;
+    background-color: #7c7f7e !important ;
     cursor: no-drop;
 }
 .gheDangDat {
-    border-color: rgb(247 230 0) !important;
-    color: rgb(247 230 0) !important;
+    background-color: #ffcd18 !important;
 }
 .gheVip {
-    border-color: #ff0404;
-    color: #ff0404;
+    background-color: #d2212e;
 }
 .gheDaDuocDat {
-    border-color: rgb(0, 0, 0) !important;
-    color: rgb(0, 0, 0) !important;
-
+    background-color: #9964c4 !important;
     /* -webkit-box-shadow: 3px 6px 11px 0px #000000; 
     box-shadow: 3px 6px 11px 0px #000000; */
 }
@@ -54,13 +49,14 @@ thead tr th {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
+
 }
 .App .ant-tabs > .ant-tabs-nav,
 .ant-tabs > div > .ant-tabs-nav {
     position: fixed;
 }
 .top-checkout::after {
-    background: radial-gradient(circle, rgba(245,106,117,1) 8%, rgba(165,44,158,1) 97%);
+    background: linear-gradient(242deg, rgba(252,69,60,1) 8%, rgba(159,47,46,1) 97%);
     content: "";
     height: 130px;
     width: 100%;
@@ -89,25 +85,26 @@ thead tr th {
 .ant-tabs > div > .ant-tabs-nav {
     padding: 0 50px;
     width: 100%;
-    background-color: #1d1e2261;
-    color: white;
+    background-color: #ffffff91;
+    color: black;
 }
 .App .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-    color: red;
+    color: white;
 }
 .App .ant-tabs-tab:hover {
-    color: rgb(174, 19, 19);
+    color: white;
 }
 .App .ant-tabs-tab:focus {
-    color: rgb(174, 19, 19);
+    color: white;
 }
 .App .ant-tabs-ink-bar {
     /* visibility: hidden; */
-    background-color: red;
+    background-color: white;
 }
 .bottom-checkout {
     /* background-color: #18181a; */
-    background: radial-gradient(circle, rgb(49 46 46) 8%, rgb(71 61 61) 97%);
+    /* background: radial-gradient(circle, rgb(49 46 46) 8%, rgb(71 61 61) 97%); */
+    background-color: #151714;
 }
 .App .anticon {
     font-size: 1.2em;
@@ -122,13 +119,10 @@ strong {
         width: 27px;
         height: 27px;
         margin: 4px;
-        border: 3px solid #d1c9c9;
-        border-bottom: 6px solid #d1c9c9;
         font-size: 0.9em;
     }
     .gheVip {
-        border-color: rgb(255 106 0);
-        color: rgb(255 106 0);
+        background-color: #d2212e;
     }
 }
 @media screen and (max-width: 900px) {
@@ -136,13 +130,10 @@ strong {
         width: 24px;
         height: 24px;
         margin: 3px;
-        border: 3px solid #d1c9c9;
-        border-bottom: 6px solid #d1c9c9;
         font-size: 0.8em;
     }
     .gheVip {
-        border-color: rgb(255 106 0);
-        color: rgb(255 106 0);
+        background-color: #d2212e;
     }
     .trapezoid{
         width: 95%;
@@ -158,13 +149,10 @@ strong {
         width: 20px;
         height: 20px;
         margin: 2px;
-        border: 2px solid #d1c9c9;
-        border-bottom: 2px solid #d1c9c9;
         font-size: 0.7em;
     }
     .gheVip {
-        border-color: rgb(255 106 0);
-        color: rgb(255 106 0);
+        background-color: #d2212e;
     }
 
 }
@@ -174,13 +162,11 @@ strong {
         width: 20px;
         height: 20px;
         margin: 1.5px;
-        border: 2px solid #d1c9c9;
-        border-bottom: 2px solid #d1c9c9;
+
         font-size: 0.7em;
     }
     .gheVip {
-        border-color: rgb(255 106 0);
-        color: rgb(255 106 0);
+        background-color: #d2212e;
     }
     tbody tr th{
         font-size: 10px;
@@ -194,13 +180,10 @@ strong {
         width: 28px;
         height: 28px;
         margin: 2px;
-        border: 2px solid #d1c9c9;
-        border-bottom: 2px solid #d1c9c9;
         font-size: 1em;
     }
     .gheVip {
-        border-color: rgb(255 106 0);
-        color: rgb(255 106 0);
+        background-color: #d2212e;
     }
     .top-checkout::after {
         height: 80px;

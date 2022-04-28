@@ -67,15 +67,15 @@ function Checkout(props) {
           <div className='row-span-1 col-span-3'>
             <div className="flex text-center ssm:text-left">
               <div className="w-1/3 ">
-                <p className='text-base md:text-lg'>Ngày chiếu</p>
+                <p className='text-base md:text-lg text-black'>Ngày chiếu</p>
                 <p className='text-xl md:text-2xl opacity-80'>{ngayChieu}</p>
               </div>
               <div className="w-1/3 ">
-                <p className='text-base md:text-lg'>Thời gian</p>
+                <p className='text-base md:text-lg text-black'>Thời gian</p>
                 <p className='text-xl md:text-2xl opacity-80'>{gioChieu}</p>
               </div>
               <div className="w-1/3 ">
-                <p className='text-base md:text-lg'>Rạp</p>
+                <p className='text-base md:text-lg text-black'>Rạp</p>
                 <p className='text-xl md:text-2xl opacity-80'>{tenRap}</p>
               </div>
             </div>
@@ -116,10 +116,10 @@ function Checkout(props) {
           </div>
 
         </div>
-        <div className='col-span-12 md:col-span-4 lg:col-span-3 text-white p-3 rounded mt-3 mx-auto md:m-auto   w-full ssm:w-3/5  md:w-full' style={{ background: 'radial-gradient(circle, rgba(245,106,117,1) 8%, rgba(165,44,158,1) 97%)', boxShadow: 'rgb(47 43 43 / 80%) 1px 3px 8px 7px' }}>
-          <h3 className='text-green-400 text-center text-2xl my-1 ssm:my-2  lg:my-5'>Welcome</h3>
+        <div className='col-span-12 md:col-span-4 lg:col-span-3 text-white p-3 rounded mt-3 mx-auto md:m-auto   w-full ssm:w-3/5  md:w-full' style={{ background: 'linear-gradient(242deg, rgba(252,69,60,1) 8%, rgba(159,47,46,1) 97%)' }}>
+          <h3 className=' text-center text-2xl my-1 ssm:my-2  lg:my-5' style={{color:'#fec802'}}>Welcome</h3>
           <hr />
-          <h3 className='text-xl mt-5 text-red-600 text-center'>{tenPhim}</h3>
+          <h3 className='text-xl mt-5  text-center' style={{color:'black'}}>{tenPhim}</h3>
           <p><strong>Địa điểm:</strong>  {tenCumRap}</p>
           <p><strong>Ngày chiếu:</strong> {ngayChieu} - {gioChieu} - {tenRap}</p>
           <hr />
@@ -128,7 +128,7 @@ function Checkout(props) {
               {_.sortBy(dsGheDangDat, ['stt']).map((ghe, index) => {
                 console.log(ghe);
                 if (ghe.loaiGhe === 'Vip') {
-                  return <span key={ghe.maGhe} style={{ color: "#ff0404 " }}> [{ghe.tenGhe}] </span>
+                  return <span key={ghe.maGhe} style={{ color: "#fec802 " }}> [{ghe.tenGhe}] </span>
                 }
                 return <span key={ghe.maGhe}> [{ghe.tenGhe}] </span>
               })}
@@ -144,7 +144,7 @@ function Checkout(props) {
           </div>
           <hr />
           <div className='my-1 ssm:my-2 lg:my-5'>
-            <p className=' text-yellow-50 text-lg text-right pr-2'>Tổng tiền: <span className=' text-red-600'>
+            <p className=' text-yellow-50 text-lg text-right pr-2'>Tổng tiền: <span style={{color:'#fec802'}}>
               {
                 dsGheDangDat.reduce((tongTien, ghe, index) => {
                   return tongTien += ghe.giaVe
@@ -152,7 +152,7 @@ function Checkout(props) {
             </span>  VNĐ</p>
           </div>
           <div className='mt-5 '>
-            <button className='w-full bg-green-500 block py-3 rounded font-bold	' onClick={() => {
+            <button className='w-full  block py-3 rounded font-bold	text-black' style={{background:'linear-gradient(320deg, rgba(254,200,2,1) 8%, rgba(255,138,0,1) 97%)'}} onClick={() => {
               const thongTinDatVe = new ThongTinDatVe()
               thongTinDatVe.maLichChieu = props.match.params.id
               thongTinDatVe.danhSachVe = dsGheDangDat
@@ -175,22 +175,22 @@ function KetQuaDatVe() {
     return thongTinTaiKhoan.thongTinDatVe?.map((ve) => {
       const seats = _.first(ve.danhSachGhe)
       return <div className="p-2 lg:w-1/3 md:w-1/2 w-full">
-        <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg" style={{ backgroundColor: 'rgb(48 48 48)' }}>
+        <div className="h-full flex items-start border-gray-200 border p-4 rounded-lg" style={{ background: 'linear-gradient(320deg, rgba(254,200,2,1) 8%, rgba(255,138,0,1) 97%)' }}>
           <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src={ve.hinhAnh} />
           <div className="flex-grow">
-            <h2 className="text-white title-font font-medium">{ve.tenPhim}</h2>
-            <p className="text-white">Giờ chiếu: {moment(ve.ngayDat).format('hh:mm A')} - Ngày chiếu: {moment(ve.ngayDat).format('DD-MM-YYYY')}</p>
-            <p className="text-white">Địa điểm: {seats.tenHeThongRap} </p>
-            <p className="text-white">Tên rạp: {seats.tenCumRap} - ghế: {ve.danhSachGhe.map(ghe => <span>{ghe.tenGhe} </span>)}</p>
+            <h2 className="text-black title-font font-medium">{ve.tenPhim}</h2>
+            <p className="text-black">Giờ chiếu: {moment(ve.ngayDat).format('hh:mm A')} - Ngày chiếu: {moment(ve.ngayDat).format('DD-MM-YYYY')}</p>
+            <p className="text-black">Địa điểm: {seats.tenHeThongRap} </p>
+            <p className="text-black">Tên rạp: {seats.tenCumRap} - ghế: {ve.danhSachGhe.map(ghe => <span>{ghe.tenGhe} </span>)}</p>
           </div>
         </div>
       </div>
     })
   }
-  return <section className="text-gray-600 body-font " style={{ background: 'radial-gradient(circle, rgb(93 90 90) 8%, rgb(77 73 73) 97%)' }}>
+  return <section className="text-gray-600 body-font " style={{ background: '#151714' }}>
     <div className="container px-5 py-24 mx-auto">
       <div className="flex flex-col text-center w-full mb-20">
-        <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-purple-500">Lịch sử đặt vé của bạn</h1>
+        <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 " style={{color:'#d2212e'}}>Lịch sử đặt vé của bạn</h1>
         <p className="lg:w-2/3 mx-auto leading-relaxed text-white">Hãy xem thông tin và thời gian để xem phim vui vẻ bạn nhé !</p>
       </div>
       <div className="flex flex-wrap -m-2">
