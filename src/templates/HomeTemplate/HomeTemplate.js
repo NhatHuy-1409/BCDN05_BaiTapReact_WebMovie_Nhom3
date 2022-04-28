@@ -2,7 +2,7 @@
 import { Route } from 'react-router-dom';
 import { Fragment } from "react";
 import Header from '../Header/Header';
-import HomeCarousel from './Layout/HomeCarousel';
+import  HomeCarousel from './Layout/HomeCarousel';
 import Footer from '../Footer/Footer';
 
 export const HomeTemplate = (props) => {

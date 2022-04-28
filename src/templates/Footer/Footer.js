@@ -29,7 +29,7 @@ export default function Footer(props) {
                     {/* <a href="#" className='hover:text-indigo-600 text-white text-base'>Link</a> */}
                   </div>
                 })}
-
+              
 
               </div>
             </div>
