@@ -1,25 +1,215 @@
+.trapezoid {
+    border-bottom: 30px solid #242424;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    height: 0;
+    width: 80%;
+
+    box-shadow: 0px 3px 0px 0 rgba(248, 237, 237, 0.1), 0px 6px 0px 0 rgba(248, 237, 237, 0.1), 0px 9px 0px 0 rgba(248, 237, 237, 0.1), 0px 12px 0px 0 rgba(248, 237, 237, 0.1), 0px 15px 0px 0 rgba(248, 237, 237, 0.1), 0px 18px 0px 0 rgba(248, 237, 237, 0.1), 0px 21px 0px 0 rgba(248, 237, 237, 0.1), 0px 24px 0px 0 rgba(248, 237, 237, 0.1), 0px 27px 0px 0 rgba(248, 237, 237, 0.1), 0px 30px 0px 0 rgba(248, 237, 237, 0.1), 5px 5px 15px 0 rgba(248, 237, 237, 0);
+}
 .ghe {
-    width: 35px;
-    height: 35px;
-    border: none;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    border: 3px solid #d1c9c9;
+    border-bottom: 6px solid #d1c9c9;
+    font-size: 1.1em;
     border-radius: 5px;
     cursor: pointer;
-    margin: 10px;
-    background-color: gray;
+    background-color: transparent;
     color: #fff;
 }
 .gheDaDat {
-    background-color: palevioletred !important ;
+    border-color: #00086f !important ;
+    color: #00086f !important ;
     cursor: no-drop;
 }
 .gheDangDat {
-    background-color: rgb(30, 208, 30) !important;
+    border-color: rgb(247 230 0) !important;
+    color: rgb(247 230 0) !important;
 }
 .gheVip {
-    background-color: rgb(255, 0, 0);
+    border-color: #ff0404;
+    color: #ff0404;
 }
 .gheDaDuocDat {
-    background-color: rgb(25, 24, 24) !important;
+    border-color: rgb(0, 0, 0) !important;
+    color: rgb(0, 0, 0) !important;
+
     /* -webkit-box-shadow: 3px 6px 11px 0px #000000; 
     box-shadow: 3px 6px 11px 0px #000000; */
+}
+tbody tr th {
+    text-align: center;
+    color: #e0d7d7;
+}
+thead tr th {
+    text-align: center;
+}
+.top-checkout {
+    height: 100%;
+    padding-top: 120px;
+    color: white;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+.App .ant-tabs > .ant-tabs-nav,
+.ant-tabs > div > .ant-tabs-nav {
+    position: fixed;
+}
+.top-checkout::after {
+    background: radial-gradient(circle, rgba(245,106,117,1) 8%, rgba(165,44,158,1) 97%);
+    content: "";
+    height: 130px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+}
+.top-checkout p {
+    margin-bottom: 0;
+}
+.top-checkout img {
+    box-shadow: 1px 3px 8px 7px rgb(40 40 40 / 80%);
+    border-radius: 5px;
+}
+.App .ant-tabs > .ant-tabs-nav,
+.ant-tabs > div > .ant-tabs-nav {
+    z-index: 20;
+}
+.App .ant-tabs-top > .ant-tabs-nav::before,
+.ant-tabs-bottom > .ant-tabs-nav::before,
+.ant-tabs-top > div > .ant-tabs-nav::before,
+.ant-tabs-bottom > div > .ant-tabs-nav::before {
+    border-bottom: none;
+}
+.App .ant-tabs > .ant-tabs-nav,
+.ant-tabs > div > .ant-tabs-nav {
+    padding: 0 50px;
+    width: 100%;
+    background-color: #1d1e2261;
+    color: white;
+}
+.App .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: red;
+}
+.App .ant-tabs-tab:hover {
+    color: rgb(174, 19, 19);
+}
+.App .ant-tabs-tab:focus {
+    color: rgb(174, 19, 19);
+}
+.App .ant-tabs-ink-bar {
+    /* visibility: hidden; */
+    background-color: red;
+}
+.bottom-checkout {
+    /* background-color: #18181a; */
+    background: radial-gradient(circle, rgb(49 46 46) 8%, rgb(71 61 61) 97%);
+}
+.App .anticon {
+    font-size: 1.2em;
+    vertical-align: text-bottom;
+}
+strong {
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 1023px) {
+    .ghe {
+        width: 27px;
+        height: 27px;
+        margin: 4px;
+        border: 3px solid #d1c9c9;
+        border-bottom: 6px solid #d1c9c9;
+        font-size: 0.9em;
+    }
+    .gheVip {
+        border-color: rgb(255 106 0);
+        color: rgb(255 106 0);
+    }
+}
+@media screen and (max-width: 900px) {
+    .ghe {
+        width: 24px;
+        height: 24px;
+        margin: 3px;
+        border: 3px solid #d1c9c9;
+        border-bottom: 6px solid #d1c9c9;
+        font-size: 0.8em;
+    }
+    .gheVip {
+        border-color: rgb(255 106 0);
+        color: rgb(255 106 0);
+    }
+    .trapezoid{
+        width: 95%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .top-checkout::after {
+        height: 80px;
+    }
+}
+@media screen and (max-width: 535px) {
+    .ghe {
+        width: 20px;
+        height: 20px;
+        margin: 2px;
+        border: 2px solid #d1c9c9;
+        border-bottom: 2px solid #d1c9c9;
+        font-size: 0.7em;
+    }
+    .gheVip {
+        border-color: rgb(255 106 0);
+        color: rgb(255 106 0);
+    }
+
+}
+
+@media screen and (max-width: 415px) {
+    .ghe {
+        width: 20px;
+        height: 20px;
+        margin: 1.5px;
+        border: 2px solid #d1c9c9;
+        border-bottom: 2px solid #d1c9c9;
+        font-size: 0.7em;
+    }
+    .gheVip {
+        border-color: rgb(255 106 0);
+        color: rgb(255 106 0);
+    }
+    tbody tr th{
+        font-size: 10px;
+    }
+    .top-checkout::after {
+        height: 80px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .ghe {
+        width: 28px;
+        height: 28px;
+        margin: 2px;
+        border: 2px solid #d1c9c9;
+        border-bottom: 2px solid #d1c9c9;
+        font-size: 1em;
+    }
+    .gheVip {
+        border-color: rgb(255 106 0);
+        color: rgb(255 106 0);
+    }
+    .top-checkout::after {
+        height: 80px;
+    }
+    tbody tr th{
+        font-size: 9px;
+    }
+    .App .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
+        font-size: 11px;
+    }
+
 }
