@@ -38,7 +38,6 @@ export default function Detail() {
 
                               </div>
                          </div>
-
                     </div>
                     <div className='m-10 container'>
                          <Tabs tabPosition={'right'}>
