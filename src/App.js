@@ -18,6 +18,7 @@ import Films from './pages/Admin/Films/Films';
 import Showtime from './pages/Admin/Showtime/Showtime';
 import AddNew from './pages/Admin/Films/AddNew/AddNew';
 import Edit from './pages/Admin/Films/Edit/Edit';
+import Detail from './pages/Detail/Detail';
 
 const CheckoutTemplateLazy = lazy(() => import('./templates/CheckoutTemlate/CheckoutTemplate'))
 export const history = createBrowserHistory()
@@ -34,6 +35,7 @@ function App() {
           <HomeTemplate exact path='/home' component={Home} />
           <HomeTemplate exact path='/bookingtickets' component={BookingTickets} />
           <HomeTemplate exact path='/movies' component={Movies} />
+          <HomeTemplate exact path='/detail/:id' component={Detail} />
           <UserTemplate path='/login' exact Component={Login} />
           <UserTemplate path='/register' exact Component={Register} />
           <AdminTemplate path='/admin' exact Component={DashBoard} />

@@ -2,6 +2,7 @@ import React from 'react'
 import './Film_Flip.css'
 
 import { PlayCircleOutlined } from '@ant-design/icons'
+import { NavLink } from 'react-router-dom';
 export default function Film_Flip(props) {
   const { phim } = props;
   return (
@@ -23,7 +24,9 @@ export default function Film_Flip(props) {
           </div>
         </div>
       </div>
-      <div className=" mt-2 text-white font-bold text-center cursor-pointer py-2 bg-indigo-600 hover:text-white hover:bg-indigo-700">Đặt vé</div>
+      <div className="  mt-2 text-white font-bold text-center cursor-pointer py-2 bg-indigo-600 hover:text-white hover:bg-indigo-700">
+        <NavLink to={`/detail/${phim.maPhim}`} >Đặt vé</NavLink>
+      </div>
     </div>
 
 

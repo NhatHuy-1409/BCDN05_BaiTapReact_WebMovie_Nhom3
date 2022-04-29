@@ -11,7 +11,6 @@ export const HomeTemplate = (props) => {
     // Fragment: Gần giống div nhưng sẽ ko hiển thị trên giao diện thẻ
     return <Fragment>
       <Header {...propsRoute} />
-      <HomeCarousel/>
       <props.component {...propsRoute} />
       <Footer />
     </Fragment>
