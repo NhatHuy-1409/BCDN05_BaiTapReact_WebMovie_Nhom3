@@ -24,10 +24,8 @@ export default (state = stateDefault, action) => {
         case DAT_VE_HOAN_TAT:
             state.dsGheDangDat = []
             return { ...state }
-        case CHUYEN_TAB:
-            
+        case CHUYEN_TAB:     
             state.tabActive = action.tabNumber
-            console.log(action.tabNumber);
             return { ...state }
         default:
             return state
