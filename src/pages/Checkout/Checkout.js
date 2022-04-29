@@ -126,7 +126,6 @@ function Checkout(props) {
           <div className=" my-5">
             <p className='  text-lg'><strong>Ghế</strong>
               {_.sortBy(dsGheDangDat, ['stt']).map((ghe, index) => {
-                console.log(ghe);
                 if (ghe.loaiGhe === 'Vip') {
                   return <span key={ghe.maGhe} style={{ color: "#fec802 " }}> [{ghe.tenGhe}] </span>
                 }
@@ -166,22 +165,23 @@ function Checkout(props) {
 }
 function KetQuaDatVe() {
   const { thongTinTaiKhoan } = useSelector(state => state.QuanLyNguoiDungReducer)
+  const { tabActive } = useSelector(state => state.QuanLyDatVeReducer)
+
   let dispatch = useDispatch()
   useEffect(() => {
     dispatch(layThongTinTaiKhoanAction())
-  }, [])
-
+  }, [tabActive])
   const renderTicketItem = () => {
     return thongTinTaiKhoan.thongTinDatVe?.map((ve) => {
       const seats = _.first(ve.danhSachGhe)
-      return <div className="p-2 lg:w-1/3 md:w-1/2 w-full">
+      return <div key={ve.maVe} className="p-2 lg:w-1/3 md:w-1/2 w-full">
         <div className="h-full flex items-start border-gray-200 border p-4 rounded-lg" style={{ background: 'linear-gradient(320deg, rgba(254,200,2,1) 8%, rgba(255,138,0,1) 97%)' }}>
           <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src={ve.hinhAnh} />
           <div className="flex-grow">
-            <h2 className="text-black title-font font-medium">{ve.tenPhim}</h2>
-            <p className="text-black">Giờ chiếu: {moment(ve.ngayDat).format('hh:mm A')} - Ngày chiếu: {moment(ve.ngayDat).format('DD-MM-YYYY')}</p>
-            <p className="text-black">Địa điểm: {seats.tenHeThongRap} </p>
-            <p className="text-black">Tên rạp: {seats.tenCumRap} - ghế: {ve.danhSachGhe.map(ghe => <span>{ghe.tenGhe} </span>)}</p>
+            <h2 className="text-red-700 text-lg title-font font-medium">{ve.tenPhim}</h2>
+            <p className="text-black"><strong>Giờ chiếu:</strong> {moment(ve.ngayDat).format('hh:mm A')} - <strong>Ngày chiếu:</strong> {moment(ve.ngayDat).format('DD-MM-YYYY')}</p>
+            <p className="text-black"><strong>Địa điểm:</strong> {seats.tenHeThongRap} </p>
+            <p className="text-black"><strong>Tên rạp:</strong> {seats.tenCumRap} - <strong>Ghế:</strong> {_.sortBy(ve.danhSachGhe, ['tenGhe']).map(ghe => <span key={ghe.maGhe}>{ghe.tenGhe} </span>)}</p>
           </div>
         </div>
       </div>
@@ -194,15 +194,6 @@ function KetQuaDatVe() {
         <p className="lg:w-2/3 mx-auto leading-relaxed text-white">Hãy xem thông tin và thời gian để xem phim vui vẻ bạn nhé !</p>
       </div>
       <div className="flex flex-wrap -m-2">
-        {/* <div className="p-2 lg:w-1/3 md:w-1/2 w-full">
-          <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-            <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/80x80" />
-            <div className="flex-grow">
-              <h2 className="text-gray-900 title-font font-medium">Holden Caulfield</h2>
-              <p className="text-gray-500">UI Designer</p>
-            </div>
-          </div>
-        </div> */}
         {renderTicketItem()}
       </div>
     </div>
