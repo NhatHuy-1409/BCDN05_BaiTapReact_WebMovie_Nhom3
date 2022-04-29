@@ -9,7 +9,7 @@ import HomeCarousel from '../../templates/HomeTemplate/Layout/HomeCarousel';
 
 export default function Home(props) {
   const { arrfilm } = useSelector(state => state.QuanLyPhimReducer);
-  const { heThongRapChieu } = useSelector(state => state.QuanLyRapReducer)
+  // const { heThongRapChieu } = useSelector(state => state.QuanLyRapReducer)
 
   const dispatch = useDispatch()
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function Home(props) {
         </div>
       </section>
 
-      <HomeMenu heThongRapChieu={heThongRapChieu} />
+      {/* <HomeMenu heThongRapChieu={heThongRapChieu} /> */}
     </div>
   )
 }

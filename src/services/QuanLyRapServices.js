@@ -6,9 +6,9 @@ export class QuanLyRapServices {
     layDanhSachHeThongRap = () => {
         return http.get(`/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${GROUP_ID}`)
     }
-    layThongTinLichChieuPhim = (maPhim) => {
-        return http.get(`/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`)
-    }
+    // layThongTinLichChieuPhim = (maPhim) => {
+    //     return http.get(`/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`)
+    // }
     layThongTinHeThongRap = () => {
         return http.get(`/api/QuanLyRap/LayThongTinHeThongRap`)
     }
