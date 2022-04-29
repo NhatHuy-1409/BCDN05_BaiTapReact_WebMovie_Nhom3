@@ -20,7 +20,7 @@ export default function Home(props) {
   //  console.log(arrfilm);
   return (
     <div  >
-
+      
       <section className="text-gray-600 body-font">
         <div className="container pb-8 mx-auto">
           <MultipleRowSlick arrfilm={arrfilm} />

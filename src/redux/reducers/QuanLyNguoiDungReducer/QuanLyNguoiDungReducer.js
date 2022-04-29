@@ -1,5 +1,5 @@
 import { TOKEN, USER_LOGIN } from "../../../util/setting/setting"
-import { DANG_NHAP_ACTION, SET_THONG_TIN_TAI_KHOAN_ACTION } from "../../types/QuanLyNguoiDungtype"
+import { DANG_NHAP_ACTION, DANG_XUAT_TAI_KHOAN_ACTION, SET_THONG_TIN_TAI_KHOAN_ACTION } from "../../types/QuanLyNguoiDungtype"
 import { history } from "../../../App";
 
 let user = {}
@@ -18,6 +18,7 @@ export default (state = stateDefault, action) => {
             const { thongtinDangNhap } = action
             localStorage.setItem(USER_LOGIN, JSON.stringify(thongtinDangNhap))
             localStorage.setItem(TOKEN, JSON.stringify(thongtinDangNhap.accessToken))
+            console.log('dnaction');
             return { ...state, userLogin: thongtinDangNhap }
         case SET_THONG_TIN_TAI_KHOAN_ACTION:
             state.thongTinTaiKhoan = action.thongTinTaiKhoan
