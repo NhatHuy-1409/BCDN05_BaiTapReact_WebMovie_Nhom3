@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, CustomCard } from '@tsamantanis/react-glassmorphism';
 import '@tsamantanis/react-glassmorphism/dist/index.css';
 import '../../assets/circle.css';
+import style from'./Detail.module.css'
 import { Tabs, Radio, Space } from 'antd';
 
 const { TabPane } = Tabs;
@@ -58,4 +59,5 @@ export default function Detail() {
           </div >
      )
 }
+
 

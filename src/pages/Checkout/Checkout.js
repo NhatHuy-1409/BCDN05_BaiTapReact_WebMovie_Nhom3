@@ -205,7 +205,7 @@ const { TabPane } = Tabs;
 export default function (props) {
   const { tabActive } = useSelector(state => state.QuanLyDatVeReducer)
   let dispatch = useDispatch()
-  return <div className=''>
+  return <div className='checkoutPage'>
     <Tabs defaultActiveKey='1' activeKey={tabActive} onChange={(key) => {
       dispatch({
         type: CHUYEN_TAB,
