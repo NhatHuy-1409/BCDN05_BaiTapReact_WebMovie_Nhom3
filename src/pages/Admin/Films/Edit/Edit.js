@@ -18,7 +18,7 @@ import { GROUP_ID } from '../../../../util/setting/setting';
 export default function Edit(props) {
      const [componentSize, setComponentSize] = useState('default');
      const { thongTinPhim } = useSelector(state => state.QuanLyPhimReducer);
-     // console.log("thongTinPhim", thongTinPhim);
+     console.log("thongTinPhim", thongTinPhim);
      const [imgSrc, setImgSrc] = useState('');
      const dispatch = useDispatch();
      useEffect(() => {

@@ -73,10 +73,10 @@ export default function AdminTemplate(props) {
      // </Fragment>
      const infoUser = JSON.parse(localStorage.getItem(USER_LOGIN))
      console.log(infoUser);
-     if (infoUser === null ) {
+     if (infoUser === null) {
           return <Redirect to='/login' />
      }
-     if(infoUser.maLoaiNguoiDung === 'KhachHang'){
+     if (infoUser.maLoaiNguoiDung === 'KhachHang') {
           alert('Bạn không có quyền truy cập trang này')
           return <Redirect to='/home' />
      }

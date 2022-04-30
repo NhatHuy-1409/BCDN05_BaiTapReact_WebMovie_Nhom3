@@ -51,7 +51,17 @@ export const capNhatPhimUploadAction = (formData) => {
 
 export const layThongTinPhimAction = (maPhim) => {
   return async (dispatch) => {
+    try {
+      let result = await quanLyPhimServices.layThongTinPhim(maPhim);
+      console.log('result', result.data.content);
+      dispatch({
+        type: SET_THONG_TIN_FILM,
+        thongTinPhim: result.data.content
+      })
 
+    } catch (error) {
+      console.log(error.response?.data);
+    }
   }
 }
 
