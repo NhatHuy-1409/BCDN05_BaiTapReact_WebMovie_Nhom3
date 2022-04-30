@@ -75,7 +75,7 @@ export default function Detail(props) {
                                                             </div>
                                                             <div className="thong-tin-lich-chieu grid grid-cols-4 text-white">
                                                                  {cumrap.lichChieuPhim?.slice(0, 12).map((lichChieu, index) => {
-                                                                      return <NavLink to="/checkout/{maLichChieu}" className="col-span-1" key={index}>
+                                                                      return <NavLink to={`/checkout/${lichChieu.maLichChieu}`} className="col-span-1" key={index}>
                                                                            {moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}
                                                                       </NavLink>
                                                                  })}
