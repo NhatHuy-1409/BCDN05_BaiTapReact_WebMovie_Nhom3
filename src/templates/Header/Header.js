@@ -1,8 +1,59 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { TOKEN, USER_LOGIN } from '../../util/setting/setting';
 import './header.css'
 import Navbar from './Navbar/Navbar';
 
+// import { UserOutlined } from '@ant-design/icons'
+import style from './header.module.css'
+import 'antd/dist/antd.css';
+//Dropdown menu
+import { Menu, Dropdown, Button, message, Space, Tooltip } from 'antd';
+import { DownOutlined, UserOutlined, LogoutOutlined, UserAddOutlined } from '@ant-design/icons';
+import { history } from '../../App';
+import { useDispatch } from 'react-redux';
+import { DANG_XUAT_TAI_KHOAN_ACTION } from '../../redux/types/QuanLyNguoiDungtype';
+
+function handleButtonClick(e) {
+  message.info('Click on left button.');
+  console.log('click left button', e);
+}
+
+function handleMenuClick(e) {
+  message.info('Click on menu item.');
+  console.log('click', e);
+}
+
+const menu = (
+  <Menu>
+    <Menu.Item>
+      <a target="_blank" rel="noopener noreferrer" key={'1'} onClick={() => { history.push('/register') }}><UserOutlined /> View Profile</a>
+    </Menu.Item>
+    <Menu.Item>
+      <a target="_blank" rel="noopener noreferrer" key={'2'} onClick={() => { history.push('/admin') }}><UserAddOutlined /> Dashboard</a>
+    </Menu.Item>
+    <Menu.Item>
+      <a target="_blank" rel="noopener noreferrer" key={'3'} onClick={() => {
+        localStorage.removeItem(USER_LOGIN)
+        localStorage.removeItem(TOKEN)
+        history.push('/home')
+      }}><LogoutOutlined /> Log Out</a>
+    </Menu.Item>
+  </Menu>
+);
+
+export const DropdownMenu = () => (
+  <Space wrap>
+    <Dropdown overlay={menu}>
+      <Button className='ml-1'>
+        <Space>
+          {JSON.parse(localStorage.getItem(USER_LOGIN)).hoTen}
+          <DownOutlined />
+        </Space>
+      </Button>
+    </Dropdown>
+  </Space>
+);
 
 export default function Header(props) {
   const headerRef = useRef(null);
@@ -50,8 +101,18 @@ export default function Header(props) {
 
           </ul>
           <div className="items-center flex-shrink-0 hidden lg:flex">
-            <NavLink to='/login' className=" link-item self-center px-8 py-3 rounded text-base font-bold" activeClassName='border-b-2   border-active'>Sign in</NavLink>
-            <NavLink to='/register' className="btn first" activeClassName='border-b-2   border-active'>Sign up</NavLink>
+            {
+              localStorage.getItem(TOKEN) ? <div className='flex'>
+                <UserOutlined className={`${style.anticon} items-center`} />
+                {/* <p className='mt-1 mb-0 pl-1 text-lg'>{JSON.parse(localStorage.getItem(USER_LOGIN)).hoTen}</p> */}
+                <DropdownMenu />
+
+              </div> : <>
+                <NavLink to='/login' className=" link-item self-center px-8 py-3 rounded text-base font-bold" activeClassName='border-b-2   border-active'>Sign in</NavLink>
+                <NavLink to='/register' className="btn first" activeClassName='border-b-2   border-active'>Sign up</NavLink>
+              </>
+            }
+
 
           </div>
           {/* <button className="btnMenu p-4 lg:hidden">
@@ -70,3 +131,5 @@ export default function Header(props) {
     </div>
   )
 }
+
+

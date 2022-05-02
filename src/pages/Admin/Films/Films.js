@@ -11,7 +11,7 @@ const { Search } = Input;
 export default function Films() {
      const { arrfilmDefault } = useSelector(state => state.QuanLyPhimReducer);
      const dispatch = useDispatch();
-     console.log(arrfilmDefault);
+     // console.log(arrfilmDefault);
      useEffect(() => {
           dispatch(layDanhSachPhimAction())
      }, [])

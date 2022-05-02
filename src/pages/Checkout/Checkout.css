@@ -51,7 +51,7 @@ thead tr th {
     background-position: bottom;
 
 }
-.App .ant-tabs > .ant-tabs-nav,
+.checkoutPage .ant-tabs > .ant-tabs-nav,
 .ant-tabs > div > .ant-tabs-nav {
     position: fixed;
 }
@@ -71,33 +71,33 @@ thead tr th {
     box-shadow: 1px 3px 8px 7px rgb(40 40 40 / 80%);
     border-radius: 5px;
 }
-.App .ant-tabs > .ant-tabs-nav,
+.checkoutPage .ant-tabs > .ant-tabs-nav,
 .ant-tabs > div > .ant-tabs-nav {
     z-index: 20;
 }
-.App .ant-tabs-top > .ant-tabs-nav::before,
+.checkoutPage .ant-tabs-top > .ant-tabs-nav::before,
 .ant-tabs-bottom > .ant-tabs-nav::before,
 .ant-tabs-top > div > .ant-tabs-nav::before,
 .ant-tabs-bottom > div > .ant-tabs-nav::before {
     border-bottom: none;
 }
-.App .ant-tabs > .ant-tabs-nav,
+.checkoutPage .ant-tabs > .ant-tabs-nav,
 .ant-tabs > div > .ant-tabs-nav {
     padding: 0 50px;
     width: 100%;
     background-color: #ffffff91;
     color: black;
 }
-.App .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+.checkoutPage .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
     color: white;
 }
-.App .ant-tabs-tab:hover {
+.checkoutPage .ant-tabs-tab:hover {
     color: white;
 }
-.App .ant-tabs-tab:focus {
+.checkoutPage .ant-tabs-tab:focus {
     color: white;
 }
-.App .ant-tabs-ink-bar {
+.checkoutPage .ant-tabs-ink-bar {
     /* visibility: hidden; */
     background-color: white;
 }
@@ -106,7 +106,7 @@ thead tr th {
     /* background: radial-gradient(circle, rgb(49 46 46) 8%, rgb(71 61 61) 97%); */
     background-color: #151714;
 }
-.App .anticon {
+.checkoutPage .anticon {
     font-size: 1.2em;
     vertical-align: text-bottom;
 }
@@ -191,7 +191,7 @@ strong {
     tbody tr th{
         font-size: 9px;
     }
-    .App .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
+    .checkoutPage .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
         font-size: 11px;
     }
 

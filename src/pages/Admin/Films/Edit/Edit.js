@@ -18,7 +18,7 @@ import { GROUP_ID } from '../../../../util/setting/setting';
 export default function Edit(props) {
      const [componentSize, setComponentSize] = useState('default');
      const { thongTinPhim } = useSelector(state => state.QuanLyPhimReducer);
-     // console.log("thongTinPhim", thongTinPhim);
+     console.log("thongTinPhim", thongTinPhim);
      const [imgSrc, setImgSrc] = useState('');
      const dispatch = useDispatch();
      useEffect(() => {
@@ -111,7 +111,7 @@ export default function Edit(props) {
                onValuesChange={onFormLayoutChange}
                size={componentSize}
           >
-               <h3>Thêm Phim Mới</h3>
+               <h3>Sửa phim</h3>
                <Form.Item label="Form Size" name="size">
                     <Radio.Group>
                          <Radio.Button value="small">Small</Radio.Button>

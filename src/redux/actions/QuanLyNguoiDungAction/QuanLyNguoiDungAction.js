@@ -24,6 +24,7 @@ export const dangNhap = (infoLogin) => {
                     type: DANG_NHAP_ACTION,
                     thongtinDangNhap: result.data.content
                 })
+                alert('You have succesfully signed in our website.')
                 history.goBack()//chuyển hướng về trang trước đó
             }
         }

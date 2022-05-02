@@ -2,7 +2,7 @@
 import { Route } from 'react-router-dom';
 import { Fragment } from "react";
 import Header from '../Header/Header';
-import  HomeCarousel from './Layout/HomeCarousel';
+// import HomeCarousel from './Layout/HomeCarousel';
 import Footer from '../Footer/Footer';
 
 export const HomeTemplate = (props) => {
@@ -11,7 +11,7 @@ export const HomeTemplate = (props) => {
     // Fragment: Gần giống div nhưng sẽ ko hiển thị trên giao diện thẻ
     return <Fragment>
       <Header {...propsRoute} />
-      <HomeCarousel/>
+      {/* <HomeCarousel/>/ */}
       <props.component {...propsRoute} />
       <Footer />
     </Fragment>

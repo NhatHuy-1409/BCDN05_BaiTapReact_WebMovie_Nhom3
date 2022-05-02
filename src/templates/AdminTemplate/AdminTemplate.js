@@ -40,6 +40,8 @@ const { SubMenu } = Menu;
 //      getItem('Files', '9', <FileOutlined />),
 // ];
 export default function AdminTemplate(props) {
+
+
      const { Component, ...restProps } = props;
      const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
      const [collapsed, setCollapsed] = useState(false);
@@ -69,7 +71,15 @@ export default function AdminTemplate(props) {
      //           window.location.reload();
      //      }} className="text-blue-800"></div> Đăng Xuất</button> </Fragment> : ""}
      // </Fragment>
-
+     const infoUser = JSON.parse(localStorage.getItem(USER_LOGIN))
+     console.log(infoUser);
+     if (infoUser === null) {
+          return <Redirect to='/login' />
+     }
+     if (infoUser.maLoaiNguoiDung === 'KhachHang') {
+          alert('Bạn không có quyền truy cập trang này')
+          return <Redirect to='/home' />
+     }
      return <Route {...restProps} render={(propsRoute) => {
           // const { collapsed } = this.state;
           return <Fragment>
