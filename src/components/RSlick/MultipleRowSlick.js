@@ -6,7 +6,7 @@ import Film_Flip from '../Film/Film_Flip'
 import styleSlick from './MultipleRowSlick.module.css'
 import '../../components/button/button.css'
 
-
+import '../Modal/modalCustom.scss'
 
 const MultipleRowSlick = (props) => {
   const dispatch = useDispatch()
@@ -18,7 +18,8 @@ const MultipleRowSlick = (props) => {
   }
   const {dangChieu, sapChieu} = useSelector(state => state.QuanLyPhimReducer);
   let activeClassDC = dangChieu === true ? 'active_Film' :'non_active_Film'
-  let activeClassSC = sapChieu === false ? 'active_Film' :'non_active_Film'
+  let activeClassSC = sapChieu === true ? 'active_Film' :'non_active_Film'
+
   return (
     <div>
 

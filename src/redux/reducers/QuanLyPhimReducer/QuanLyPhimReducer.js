@@ -18,7 +18,7 @@ const stateDefault = {
     },
 
   ],
-  dangChieu: false,
+  dangChieu: true,
   sapChieu: false,
   arrfilmDefault: [],
   thongTinPhim: {}
