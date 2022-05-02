@@ -1,6 +1,7 @@
+import { GROUP_ID } from "../util/setting/setting";
 import { http } from "../util/setting/settingAxios";
 
-export class QuanLyNguoiDungServices  {
+export class QuanLyNguoiDungServices {
 
     dangNhap = (data) => {
         return http.post('api/QuanLyNguoiDung/DangNhap', data)
@@ -11,7 +12,18 @@ export class QuanLyNguoiDungServices  {
     thongTinTaiKhoan = () => {
         return http.post('api/QuanLyNguoiDung/ThongTinTaiKhoan')
     }
-
+    layDanhSachNguoiDung = (maNhom) => {
+        return http.get(`/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${GROUP_ID}`)
+    }
+    themNguoiDung = (data) => {
+        return http.post('/api/QuanLyNguoiDung/ThemNguoiDung', data)
+    }
+    capNhatThongTinNguoiDung = (data) => {
+        return http.post('/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung', data)
+    }
+    xoaNguoiDung = (taiKhoan) => {
+        return http.delete(`/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`)
+    }
 
 }
 export const quanLyNguoiDungServices = new QuanLyNguoiDungServices()

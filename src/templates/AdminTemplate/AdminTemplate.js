@@ -53,26 +53,9 @@ export default function AdminTemplate(props) {
      useEffect(() => {
           window.scrollTo(0, 0)
      })
-     // if (localStorage.getItem(USER_LOGIN)) {
-     //      alert('Bạn không có quyền truy cập trang này');
-     //      return <Redirect to='/' />
-     // }
-     // if (userLogin.maLoaiNguoiDung !== 'QuanTri') {
-     //      alert('Bạn không có quyền truy cập trang này ');
-     //      return <Redirect to='/' />
-     // }
-     // const operation = <Fragment>
-     //      {!_.isEmpty(userLogin) ? <Fragment><button onClick={() => {
-     //           history.push('/profile')
-     //      }}> <div style={{ width: 50, height: 50, display: 'flex', justifyContent: 'center' }} className="text-2xl ml-5 rounded" {{
-     //           localStorage.removeItem(USER_LOGIN);
-     //           localStorage.removeItem(TOKEN);
-     //           history.push('/home');
-     //           window.location.reload();
-     //      }} className="text-blue-800"></div> Đăng Xuất</button> </Fragment> : ""}
-     // </Fragment>
+
      const infoUser = JSON.parse(localStorage.getItem(USER_LOGIN))
-     console.log(infoUser);
+     // console.log(infoUser);
      if (infoUser === null) {
           return <Redirect to='/login' />
      }
@@ -85,19 +68,24 @@ export default function AdminTemplate(props) {
           return <Fragment>
                <Layout style={{ minHeight: '100vh', }}>
                     <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
-                         <div className="logo" >
-                              <img style={{ width: '42px', }} src="./Images/logo-02-01.png" alt="" />
-                         </div>
-                         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                              <Menu.Item key="1" icon={<UserOutlined />}>
-                                   <NavLink to="/admin/user">User</NavLink>
-                              </Menu.Item>
 
-                              <SubMenu key={"sub1"} icon={<FileOutlined />} title="film">
-                                   <Menu.Item key="2" icon={<FileOutlined />}>
+                         <img className="logo" style={{ width: '42px', }} src="./Images/logo-02-01.png" alt="" />
+
+                         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+                              <SubMenu key={"sub1"} icon={<UserOutlined />} title="User">
+                                   <Menu.Item key="19" icon={<UserOutlined />}>
+                                        <NavLink to="/admin/user">User</NavLink>
+                                   </Menu.Item>
+                                   <Menu.Item key="20" icon={<UserOutlined />}>
+                                        <NavLink to="/admin/user/add">Add User</NavLink>
+                                   </Menu.Item>
+                              </SubMenu>
+
+                              <SubMenu key={"sub2"} icon={<FileOutlined />} title="Film">
+                                   <Menu.Item key="21" icon={<FileOutlined />}>
                                         <NavLink to="/admin/films">Films</NavLink>
                                    </Menu.Item>
-                                   <Menu.Item key="4" icon={<FileOutlined />}>
+                                   <Menu.Item key="22" icon={<FileOutlined />}>
                                         <NavLink to="/admin/films/addnew">Add New</NavLink>
                                    </Menu.Item>
                               </SubMenu>
@@ -116,10 +104,10 @@ export default function AdminTemplate(props) {
                               }}
                          />
                          <Content style={{ margin: '0 16px' }}>
-                              <Breadcrumb style={{ margin: '16px 0' }}>
+                              {/* <Breadcrumb style={{ margin: '16px 0' }}>
                                    <Breadcrumb.Item>User</Breadcrumb.Item>
                                    <Breadcrumb.Item>Bill</Breadcrumb.Item>
-                              </Breadcrumb>
+                              </Breadcrumb> */}
                               <div
                                    className="site-layout-background" style={{
                                         padding: 24,
