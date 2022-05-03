@@ -18,6 +18,9 @@ export class QuanLyNguoiDungServices {
     themNguoiDung = (data) => {
         return http.post('/api/QuanLyNguoiDung/ThemNguoiDung', data)
     }
+    layThongTinNguoiDung = (taiKhoan) => {
+        return http.post(`/api/QuanLyNguoiDung/LayThongTinNguoiDung?taiKhoan=${taiKhoan}`)
+    }
     capNhatThongTinNguoiDung = (data) => {
         return http.post('/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung', data)
     }

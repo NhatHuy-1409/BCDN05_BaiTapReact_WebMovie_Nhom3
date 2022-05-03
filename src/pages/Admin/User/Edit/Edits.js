@@ -14,42 +14,42 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import { GROUP_ID } from '../../../../util/setting/setting';
-import { capNhatThongTinNguoiDungAction, layDanhSachNguoiDungAction, themNguoiDungAction } from '../../../../redux/actions/QuanLyNguoiDungAction/QuanLyNguoiDungAction';
+import { capNhatThongTinNguoiDungAction, layDanhSachNguoiDungAction, layThongTinNguoiDungAction, layThongTinTaiKhoanAction, themNguoiDungAction } from '../../../../redux/actions/QuanLyNguoiDungAction/QuanLyNguoiDungAction';
 export default function Edits(props) {
-     const { danhSachNguoiDung } = useSelector(state => state.QuanLyNguoiDungReducer);
-     console.log("danhSachNguoiDung", danhSachNguoiDung);
+     const { thongTinNguoiDung } = useSelector(state => state.QuanLyNguoiDungReducer);
+     console.log("thongTinNguoiDung", thongTinNguoiDung);
      const dispatch = useDispatch();
 
      useEffect(() => {
           console.log(props);
-          let { id } = props.computedMatch.params.id;
-          dispatch(layDanhSachNguoiDungAction(id));
+          let { id } = props.computedMatch.params;
+          dispatch(layThongTinNguoiDungAction(id));
           // console.log(props.computedMatch.params.id);
      }, []);
      const formik = useFormik({
           enableReinitialize: true,
           initialValues: {
-               // taiKhoan: danhSachNguoiDung?.taiKhoan,
-               matKhau: danhSachNguoiDung?.matKhau,
-               email: danhSachNguoiDung?.email,
-               soDt: danhSachNguoiDung?.soDt,
+               taiKhoan: thongTinNguoiDung?.taiKhoan,
+               matKhau: thongTinNguoiDung?.matKhau,
+               email: thongTinNguoiDung?.email,
+               soDT: thongTinNguoiDung?.soDT,
                maNhom: GROUP_ID,
-               hoTen: danhSachNguoiDung?.hoTen,
-               maLoaiNguoiDung: danhSachNguoiDung?.maLoaiNguoiDung,
+               hoTen: thongTinNguoiDung?.hoTen,
+               maLoaiNguoiDung: thongTinNguoiDung?.maLoaiNguoiDung,
           },
 
           onSubmit: (values) => {
                console.log(values);
-               // dispatch(capNhatThongTinNguoiDungAction(values))
+               dispatch(capNhatThongTinNguoiDungAction(values))
           }
      })
 
 
      return (
           <form onSubmit={formik.handleSubmit}>
-               {/* <Form.Item label="Tài Khoản">
-                    <Input name='taiKhoan' onChange={formik.handleChange} value={formik.values.taiKhoan} />
-               </Form.Item> */}
+               <Form.Item label="Tài Khoản">
+                    <Input disabled name='taiKhoan' onChange={formik.handleChange} value={formik.values.taiKhoan} />
+               </Form.Item>
                <Form.Item label="Họ tên">
                     <Input name='hoTen' onChange={formik.handleChange} value={formik.values.hoTen} />
                </Form.Item>
@@ -60,7 +60,7 @@ export default function Edits(props) {
                     <Input name='email' onChange={formik.handleChange} value={formik.values.email} />
                </Form.Item>
                <Form.Item label="Số điện thoại">
-                    <Input name='soDt' onChange={formik.handleChange} value={formik.values.soDt} />
+                    <Input name='soDT' onChange={formik.handleChange} value={formik.values.soDT} />
                </Form.Item>
                <Form.Item label="Loại người dùng" >
                     <Select name='maLoaiNguoiDung' value={formik.values.maLoaiNguoiDung} onChange={(value) => formik.setFieldValue("maLoaiNguoiDung", value)}>
@@ -69,7 +69,7 @@ export default function Edits(props) {
                     </Select>
                </Form.Item>
 
-               <button type='submit' className='bg-blue-700 text-white p-2'>Cập Nhâp </button>
+               <button type='submit' className='bg-blue-700 text-white p-2'>Cập Nhập </button>
 
           </form>
      )

@@ -1,6 +1,6 @@
 import { history } from "../../../App"
-import { QuanLyNguoiDungServices, quanLyNguoiDungServices } from "../../../services/QuanLyNguoiDungServices"
-import { DANG_NHAP_ACTION, DANH_SACH_NGUOI_DUNG, SET_THONG_TIN_TAI_KHOAN_ACTION } from "../../types/QuanLyNguoiDungtype"
+import { quanLyNguoiDungServices } from "../../../services/QuanLyNguoiDungServices"
+import { DANG_NHAP_ACTION, DANH_SACH_NGUOI_DUNG, SET_THONG_TIN_TAI_KHOAN_ACTION, THONG_TIN_NGUOI_DUNG } from "../../types/QuanLyNguoiDungtype"
 
 export const dangKy = (infoUser) => {
     return (dispatch2) => {
@@ -65,7 +65,21 @@ export const layDanhSachNguoiDungAction = (maNhom) => {
         }
     }
 }
-
+export const layThongTinNguoiDungAction = (taiKhoan) => {
+    return async (dispatch) => {
+        try {
+            const result = await quanLyNguoiDungServices.layThongTinNguoiDung(taiKhoan)
+            console.log("ahhhh", result.data.content)
+            dispatch({
+                type: THONG_TIN_NGUOI_DUNG,
+                thongTinNguoiDung: result.data.content
+            })
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+}
 export const xoaNguoiDungAction = (taiKhoan) => {
     return async (dispatch) => {
         try {

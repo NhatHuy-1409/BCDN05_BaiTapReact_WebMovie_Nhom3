@@ -11,10 +11,12 @@ import {
      FileOutlined,
      TeamOutlined,
      UserOutlined,
+     LogoutOutlined,
 } from '@ant-design/icons';
 // import { _ } from 'history';
 import _ from 'lodash';
-import history from 'history';
+import { history } from '../../App';
+
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -66,7 +68,9 @@ export default function AdminTemplate(props) {
      return <Route {...restProps} render={(propsRoute) => {
           // const { collapsed } = this.state;
           return <Fragment>
+
                <Layout style={{ minHeight: '100vh', }}>
+
                     <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
 
                          <img className="logo" style={{ width: '42px', }} src="./Images/logo-02-01.png" alt="" />
