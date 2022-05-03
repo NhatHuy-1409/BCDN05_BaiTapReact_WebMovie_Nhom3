@@ -5,14 +5,15 @@ import { SET_FILM_DANG_CHIEU, SET_FILM_SAP_CHIEU } from "../../redux/types/QuanL
 import Film_Flip from '../Film/Film_Flip'
 import styleSlick from './MultipleRowSlick.module.css'
 import '../../components/button/button.css'
-
 import '../Modal/modalCustom.scss'
 
+
 const MultipleRowSlick = (props) => {
+  let  {trailerUrl , setTrailerUrl} = props
   const dispatch = useDispatch()
   const renderFilm = () => {
     return props.arrfilm.slice(0, 8).map((item, index) => {
-      return <Film_Flip phim={item} key={index} />
+      return <Film_Flip phim={item} key={index} trailerUrl ={trailerUrl} setTrailerUrl = {setTrailerUrl}/>
 
     })
   }

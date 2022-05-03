@@ -8,11 +8,19 @@ import Navbar from './Navbar/Navbar';
 import style from './header.module.css'
 import 'antd/dist/antd.css';
 //Dropdown menu
+
 import { Menu, Dropdown, Button, message, Space, Tooltip } from 'antd';
 import { DownOutlined, UserOutlined, LogoutOutlined, UserAddOutlined } from '@ant-design/icons';
+import { Select } from 'antd';
+
 import { history } from '../../App';
 import { useDispatch } from 'react-redux';
 import { DANG_XUAT_TAI_KHOAN_ACTION } from '../../redux/types/QuanLyNguoiDungtype';
+// Hook language
+import { useTranslation } from 'react-i18next';
+
+
+
 
 function handleButtonClick(e) {
   message.info('Click on left button.');
@@ -23,6 +31,7 @@ function handleMenuClick(e) {
   message.info('Click on menu item.');
   console.log('click', e);
 }
+
 
 const menu = (
   <Menu>
@@ -54,8 +63,16 @@ export const DropdownMenu = () => (
     </Dropdown>
   </Space>
 );
+  // Language
+  const { Option } = Select;
+  
+  
 
 export default function Header(props) {
+  const { t, i18n } = useTranslation();
+  const handleChange = (value) => {
+    i18n.changeLanguage(value)
+  }
   const headerRef = useRef(null);
   const [stateLogo, setStateLogo] = useState({
     logo: './Images/logo-01.png'
@@ -88,15 +105,15 @@ export default function Header(props) {
           </a>
           <ul className="items-stretch hidden space-x-3 lg:flex mr-0">
             <li className="flex">
-              <NavLink to='/home' className="link-item flex text-lg font-bold items-center px-4 -mb-1 dark:border-transparent   color-pri" activeClassName='border-b-2  border-active'>Home</NavLink>
+              <NavLink to='/home' className="link-item flex text-lg font-bold items-center px-4 -mb-1 dark:border-transparentcolor-pri" activeClassName='border-b-2  border-active'>{t('home')}</NavLink>
             </li>
 
             <li className="flex">
-              <NavLink to='/movies' className="link-item flex text-lg font-bold items-center px-4 -mb-1 dark:border-transparent   " activeClassName='border-b-2  border-active '>Movies</NavLink>
+              <NavLink to='/movies' className="link-item flex text-lg font-bold items-center px-4 -mb-1 dark:border-transparent   " activeClassName='border-b-2  border-active '>{t('movies')}</NavLink>
             </li>
 
             <li className="flex">
-              <NavLink to='/bookingtickets' className="link-item flex text-lg font-bold items-center px-4 -mb-1 dark:border-transparent   " activeClassName='border-b-2  border-active'>Booking Ticket</NavLink>
+              <NavLink to='/bookingtickets' className="link-item flex text-lg font-bold items-center px-4 -mb-1 dark:border-transparent   " activeClassName='border-b-2  border-active'>{t('bookingticket')}</NavLink>
             </li>
 
           </ul>
@@ -108,8 +125,13 @@ export default function Header(props) {
                 <DropdownMenu />
 
               </div> : <>
-                <NavLink to='/login' className=" link-item self-center px-8 py-3 rounded text-base font-bold" activeClassName='border-b-2   border-active'>Sign in</NavLink>
-                <NavLink to='/register' className="btn first" activeClassName='border-b-2   border-active'>Sign up</NavLink>
+                <NavLink to='/login' className=" link-item self-center py-3 rounded text-base font-bold uppercase" activeClassName='border-b-2   border-active'>{t('signin')}</NavLink>
+                <NavLink to='/register' className="btn first mx-8 font-bold" activeClassName='border-b-2  border-active'>{t('signup')}</NavLink>
+                <Select defaultValue="ENG" style={{ width: 80}} onChange={handleChange}>
+                  <Option value="en">ENG</Option>
+                  <Option value="chi">CHI</Option>
+                  <Option value="vi">VI</Option>
+                </Select>
               </>
             }
 
@@ -122,7 +144,7 @@ export default function Header(props) {
           </button> */}
           <div className=" lg:hidden ">
 
-          <Navbar />
+            <Navbar />
           </div>
         </div>
       </header>

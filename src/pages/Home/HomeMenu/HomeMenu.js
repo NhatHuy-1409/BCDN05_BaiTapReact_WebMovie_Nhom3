@@ -51,7 +51,7 @@ export default class HomeMenu extends React.PureComponent {
                       <div className="grid grid-cols-7 gap-5">
 
                         {phim.lstLichChieuTheoPhim?.slice(0, 14).map((lichChieu, index) => {
-                          return <NavLink to='/' key={index} className='font-bold background hover:text-white hover:background text-black py-2 px-2 rounded-md'>
+                          return <NavLink to={`/checkout/${lichChieu.maLichChieu}`} key={index} className='font-bold background hover:text-white hover:background text-black py-2 px-2 rounded-md'>
                             {moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}
                           </NavLink>
                         })}

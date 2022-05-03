@@ -33,7 +33,7 @@ export default function Navbar() {
             <li key={index} className={item.cName}>
               <NavLink to={item.path}> 
                 {item.icon}
-                <span>{item.title}</span>
+                <span className='mr-4'>{item.title}</span>
               </NavLink>
             </li>
           )

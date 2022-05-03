@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { datVe, layDanhSachPhongve } from '../../redux/actions/QuanLyDatVeAction/QuanLyDatVeAction'
 import style from './Checkout.module.css'
 import './Checkout.css'
-import { CheckOutlined, UserOutlined } from '@ant-design/icons'
+import { CheckOutlined, UserOutlined, HomeOutlined } from '@ant-design/icons'
 import { CHUYEN_TAB, DAT_VE_ACTION } from '../../redux/types/QuanLyDatVeType'
 import { Fragment } from 'react'
 import _ from 'lodash'
@@ -12,6 +12,9 @@ import { Tabs } from 'antd';
 import { layThongTinTaiKhoanAction } from '../../redux/actions/QuanLyNguoiDungAction/QuanLyNguoiDungAction'
 import moment from 'moment'
 import imgBgHead from '../../assets/Images/42101_fantasy_superheroes_in_cinema.jpg'
+import { history } from '../../App'
+import { NavLink } from 'react-router-dom'
+import { TOKEN, USER_LOGIN } from '../../util/setting/setting'
 function Checkout(props) {
 
   let dispatch = useDispatch()
@@ -41,8 +44,8 @@ function Checkout(props) {
               ghe: ghe
             })
           }}>
-          {ghe.daDat ? classGheDaDuocDat != '' ? <UserOutlined style={{display:'block',marginTop:'-2px'}}/> : <CheckOutlined style={{display:'block',marginTop:'-2px'}} /> :
-            <span style={{display:'block',marginTop:'-4px'}}>{ghe.stt}</span>}
+          {ghe.daDat ? classGheDaDuocDat != '' ? <UserOutlined style={{ display: 'block', marginTop: '-2px' }} /> : <CheckOutlined style={{ display: 'block', marginTop: '-2px' }} /> :
+            <span style={{ display: 'block', marginTop: '-4px' }}>{ghe.stt}</span>}
         </button>
         {(index + 1) % 16 === 0 ? <br /> : ''}
       </Fragment>
@@ -88,11 +91,11 @@ function Checkout(props) {
             <table className="w-full ssm:w-2/3 m-auto text-sm  ">
               <thead>
                 <tr>
-                  <th><button className='ghe'><span style={{display:'block',marginTop:'-4px'}}>00</span></button></th>
-                  <th><button className='ghe gheVip'><span style={{display:'block',marginTop:'-4px'}}>00</span></button></th>
-                  <th><button className='ghe gheDangDat'><span style={{display:'block',marginTop:'-4px'}}>00</span></button></th>
-                  <th><button className='ghe gheDaDat'><CheckOutlined style={{display:'block',marginTop:'-2px'}} /></button></th>
-                  <th><button className='ghe gheDaDuocDat'><UserOutlined style={{display:'block',marginTop:'-2px'}} /></button></th>
+                  <th><button className='ghe'><span style={{ display: 'block', marginTop: '-4px' }}>00</span></button></th>
+                  <th><button className='ghe gheVip'><span style={{ display: 'block', marginTop: '-4px' }}>00</span></button></th>
+                  <th><button className='ghe gheDangDat'><span style={{ display: 'block', marginTop: '-4px' }}>00</span></button></th>
+                  <th><button className='ghe gheDaDat'><CheckOutlined style={{ display: 'block', marginTop: '-2px' }} /></button></th>
+                  <th><button className='ghe gheDaDuocDat'><UserOutlined style={{ display: 'block', marginTop: '-2px' }} /></button></th>
                 </tr>
               </thead>
               <tbody className=" ssm:text-xs  uppercase ">
@@ -117,9 +120,9 @@ function Checkout(props) {
 
         </div>
         <div className='col-span-12 md:col-span-4 lg:col-span-3 text-white p-3 rounded mt-3 mx-auto md:m-auto   w-full ssm:w-3/5  md:w-full' style={{ background: 'linear-gradient(242deg, rgba(252,69,60,1) 8%, rgba(159,47,46,1) 97%)' }}>
-          <h3 className=' text-center text-2xl my-1 ssm:my-2  lg:my-5' style={{color:'#fec802'}}>Welcome</h3>
+          <h3 className=' text-center text-2xl my-1 ssm:my-2  lg:my-5' style={{ color: '#fec802' }}>Welcome</h3>
           <hr />
-          <h3 className='text-xl mt-5  text-center' style={{color:'black'}}>{tenPhim}</h3>
+          <h3 className='text-xl mt-5  text-center' style={{ color: 'black' }}>{tenPhim}</h3>
           <p><strong>Địa điểm:</strong>  {tenCumRap}</p>
           <p><strong>Ngày chiếu:</strong> {ngayChieu} - {gioChieu} - {tenRap}</p>
           <hr />
@@ -143,7 +146,7 @@ function Checkout(props) {
           </div>
           <hr />
           <div className='my-1 ssm:my-2 lg:my-5'>
-            <p className=' text-yellow-50 text-lg text-right pr-2'>Tổng tiền: <span style={{color:'#fec802'}}>
+            <p className=' text-yellow-50 text-lg text-right pr-2'>Tổng tiền: <span style={{ color: '#fec802' }}>
               {
                 dsGheDangDat.reduce((tongTien, ghe, index) => {
                   return tongTien += ghe.giaVe
@@ -151,7 +154,7 @@ function Checkout(props) {
             </span>  VNĐ</p>
           </div>
           <div className='mt-5 '>
-            <button className='w-full  block py-3 rounded font-bold	text-black' style={{background:'linear-gradient(320deg, rgba(254,200,2,1) 8%, rgba(255,138,0,1) 97%)'}} onClick={() => {
+            <button className='w-full  block py-3 rounded font-bold	text-black' style={{ background: 'linear-gradient(320deg, rgba(254,200,2,1) 8%, rgba(255,138,0,1) 97%)' }} onClick={() => {
               const thongTinDatVe = new ThongTinDatVe()
               thongTinDatVe.maLichChieu = props.match.params.id
               thongTinDatVe.danhSachVe = dsGheDangDat
@@ -190,7 +193,7 @@ function KetQuaDatVe() {
   return <section className="text-gray-600 body-font " style={{ background: '#151714' }}>
     <div className="container px-5 py-24 mx-auto">
       <div className="flex flex-col text-center w-full mb-20">
-        <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 " style={{color:'#d2212e'}}>Lịch sử đặt vé của bạn</h1>
+        <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 " style={{ color: '#d2212e' }}>Lịch sử đặt vé của bạn</h1>
         <p className="lg:w-2/3 mx-auto leading-relaxed text-white">Hãy xem thông tin và thời gian để xem phim vui vẻ bạn nhé !</p>
       </div>
       <div className="flex flex-wrap -m-2">
@@ -204,9 +207,38 @@ function KetQuaDatVe() {
 const { TabPane } = Tabs;
 export default function (props) {
   const { tabActive } = useSelector(state => state.QuanLyDatVeReducer)
+  const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer)
+  const operations = <Fragment>
+
+  {
+    !_.isEmpty(userLogin) ? 
+   <Fragment>
+     <button onClick={() => {
+      history.push('/register')
+    }}>
+      <div className='flex items-center'>
+      <span>Hello!</span>
+      <span className='mx-2 background w-12 h-12 rounded rounded-full flex items-center justify-center font-bold bg-fuchsia-500 shadow-lg shadow-fuchsia-500/50'>  {userLogin.taiKhoan}</span>
+      </div>
+      
+    </button> 
+    <button 
+      className='rounded rounded-lg bg-cyan-700 w-20 px-2'
+      onClick={() =>{
+        localStorage.removeItem(USER_LOGIN)
+        localStorage.removeItem(TOKEN)
+        history.push('/home')
+        window.location.reload();
+      }}
+    >Đăng xuất</button>
+   </Fragment>  
+    
+    : ''
+  }
+</Fragment>
   let dispatch = useDispatch()
   return <div className='checkoutPage'>
-    <Tabs defaultActiveKey='1' activeKey={tabActive} onChange={(key) => {
+    <Tabs tabBarExtraContent={operations} defaultActiveKey='1' activeKey={tabActive} onChange={(key) => {
       dispatch({
         type: CHUYEN_TAB,
         tabNumber: key
@@ -217,6 +249,9 @@ export default function (props) {
       </TabPane>
       <TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
         <KetQuaDatVe {...props} />
+      </TabPane>
+      <TabPane tab={<NavLink className='text-fuchsia-500 font-bold w-12' to='/home'><HomeOutlined/></NavLink>} key="3">
+
       </TabPane>
     </Tabs>
   </div>
