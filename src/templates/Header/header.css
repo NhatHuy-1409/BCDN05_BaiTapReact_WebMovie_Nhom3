@@ -26,4 +26,6 @@
     color: rgba(255, 0, 128);
 }
 
-
+.header-movie .ant-select-single.ant-select-show-arrow .ant-select-selection-item{
+  padding-right: 0;
+}

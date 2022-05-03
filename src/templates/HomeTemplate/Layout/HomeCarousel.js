@@ -1,23 +1,19 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import ModalVideo from 'react-modal-video'
-
-
 
 import { getCarouselAction } from '../../../redux/actions/CarouselAction/CarouselAction';
-
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
 import SwiperCore, { Autoplay } from 'swiper';
 import './HomeCarousel.css'
 import { history } from '../../../App';
-import { Modal, Button } from 'antd';
+import { Modal } from 'antd';
 
 
 export default function HomeCarousel(props) {
-
+  // console.log(props);
+  let  {trailerUrl , setTrailerUrl} = props
   SwiperCore.use([Autoplay]);
   const { arrImgCarousel } = useSelector(state => state.CarouselReducer)
 
@@ -26,7 +22,8 @@ export default function HomeCarousel(props) {
     dispatch(getCarouselAction())
   }, [])
 
-
+  const [isModalVisible, setIsModalVisible] = useState(false);
+ 
 
   const renderBaner = () => {
     return arrImgCarousel.slice(0, 4).map((item, index) => {
@@ -47,7 +44,11 @@ export default function HomeCarousel(props) {
                   >Đặt vé</button>
                   <button 
                     className="btn third"
-                    onClick={showModal}
+                    onClick={() => {
+                      setTrailerUrl(item.trailer)
+                      setIsModalVisible(true);
+                      
+                    }}
                   >Xem Trailer
                   </button>
                 </div>
@@ -62,13 +63,8 @@ export default function HomeCarousel(props) {
       </SwiperSlide>
     })
   }
-  const [isModalVisible, setIsModalVisible] = useState(false);
+ 
   
-  const showModal = props => {
-
-    setIsModalVisible(true);
-
-  };
 
   const handleCancel = () => {
     setIsModalVisible(false);
@@ -77,7 +73,7 @@ export default function HomeCarousel(props) {
 
   return (
     
-    <div className="pt-24 pb-10">
+    <div className="pt-24 ">
 
       <Swiper
         spaceBetween={0}
@@ -94,7 +90,8 @@ export default function HomeCarousel(props) {
 
       </Swiper>
       <Modal title="Basic Modal" visible={isModalVisible}  onCancel={handleCancel}>
-      <iframe src='https://www.youtube.com/embed/seMwpP0yeu4' width='100%' height='100%' title='trailer' ></iframe>
+      {/* <iframe width='100%' height='100%' title='trailer' ></iframe> */}
+      <iframe src={trailerUrl} width='100%' height='100%' title='trailer' ></iframe>
       </Modal>
     </div >
 

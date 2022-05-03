@@ -12,6 +12,12 @@ import "slick-carousel/slick/slick-theme.css";
 
 import { DOMAIN } from './util/setting/setting';
 
+// Đa ngôn ngữ
+import './i18n'
+
+
+
+
 
 ReactDOM.render(
   <Provider store={store}>
