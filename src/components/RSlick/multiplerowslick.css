@@ -1,0 +1,23 @@
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 992px) {
+ .img__cross{
+   display: none;
+ }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+ 
+
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* @media only screen and (max-width: 650px) {
+  .hero-slide__item__content {
+    background-color: ;
+  }
+} */
+
+@media only screen and (max-width: 650px) {
+  
+}

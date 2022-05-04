@@ -2,6 +2,9 @@ import React, { Fragment, useState } from 'react'
 import { Tabs, Radio, Space } from 'antd';
 import { NavLink } from 'react-router-dom'
 import moment from 'moment';
+import './homemenu.css'
+
+
 const { TabPane } = Tabs;
 
 
@@ -22,11 +25,54 @@ export default class HomeMenu extends React.PureComponent {
   // }
   renderHeThongRap = () => {
 
+    let { tabPosition } = this.state
     return this.props.heThongRapChieu.map((heThongRap, index) => {
-      let { tabPosition } = this.state
       return <TabPane tab={<img src={heThongRap.logo} alt="" className='rounded-full' width="50" />} key={index}>
+         <Tabs value={tabPosition} onChange={this.onChange} style={{ marginBottom: 16 }}>
+         {heThongRap.lstCumRap?.map((cumRap, index) => {
+           return  <TabPane tab={
+            <div style={{ width: '300px' }} className='flex  '>
 
-        <Tabs tabPosition={tabPosition}>
+              <img src={cumRap.hinhAnh} alt="" width='50' className='rounded-sm mr-2' /><br />
+              <div className='text-left text-black text-sm hover:text-indigo-400'>
+                {cumRap.tenCumRap}
+                <p className='text-indigo-400 '>Chi tiết</p>
+              </div>
+            </div>
+          }
+            key={index}>
+            {cumRap.danhSachPhim.map((phim, index) => {
+              return <Fragment key={index}>
+                <div className='menu__time flex my-5 '>
+                  <img src={phim.hinhAnh} alt="" style={{ height: '90px', width: '90px' }} className='object-cover rounded-md' />
+                  <div className='ml-4'>
+
+                    <h1 className=' text-indigo-700 text-xl uppercase'>{phim.tenPhim}</h1>
+                    <p className='opacity-60 text-sm font-semibold'>{cumRap.diaChi}</p>
+
+                    <div className="menu__time-btn grid xl:grid-cols-8 lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3  gap-5">
+
+                      {phim.lstLichChieuTheoPhim?.slice(0, 14).map((lichChieu, index) => {
+                        return <NavLink to={`/checkout/${lichChieu.maLichChieu}`} key={index} className=' font-bold background hover:text-white hover:background text-black py-2 px-2 rounded-md'>
+                          {moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}
+                        </NavLink>
+                      })}
+                    </div>
+
+                  </div>
+
+                </div>
+                <hr />
+              </Fragment>
+            })}
+
+          </TabPane>
+           
+         })}
+         </Tabs>
+
+
+        {/* <Tabs tabPosition={tabPosition}>
           {heThongRap.lstCumRap?.map((cumRap, index) => {
             return <TabPane tab={
               <div style={{ width: '300px' }} className='flex  '>
@@ -41,14 +87,14 @@ export default class HomeMenu extends React.PureComponent {
               key={index}>
               {cumRap.danhSachPhim.map((phim, index) => {
                 return <Fragment key={index}>
-                  <div className='flex my-5 '>
+                  <div className='menu__time flex my-5 '>
                     <img src={phim.hinhAnh} alt="" style={{ height: '90px', width: '90px' }} className='object-cover rounded-md' />
                     <div className='ml-4'>
 
                       <h1 className=' text-indigo-700 text-xl uppercase'>{phim.tenPhim}</h1>
                       <p className='opacity-60 text-sm font-semibold'>{cumRap.diaChi}</p>
 
-                      <div className="grid grid-cols-7 gap-5">
+                      <div className="grid xl:grid-cols-7 lg:grid-cols-4 md:grid-cols-2  gap-5">
 
                         {phim.lstLichChieuTheoPhim?.slice(0, 14).map((lichChieu, index) => {
                           return <NavLink to={`/checkout/${lichChieu.maLichChieu}`} key={index} className='font-bold background hover:text-white hover:background text-black py-2 px-2 rounded-md'>
@@ -66,7 +112,7 @@ export default class HomeMenu extends React.PureComponent {
 
             </TabPane>
           })}
-        </Tabs>
+        </Tabs> */}
       </TabPane>
     })
   }

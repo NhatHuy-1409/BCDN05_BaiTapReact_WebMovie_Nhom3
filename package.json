@@ -13,6 +13,7 @@
     "@tsamantanis/react-glassmorphism": "^1.1.2",
     "antd": "^4.20.1",
     "axios": "^0.26.1",
+    "country-flag-icons": "^1.4.10",
     "formik": "^2.2.9",
     "history": "^4.10.0",
     "i18next": "^21.6.16",

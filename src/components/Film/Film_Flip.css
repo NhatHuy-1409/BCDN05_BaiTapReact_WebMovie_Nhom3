@@ -18,8 +18,7 @@
   left: 0;
   height: 60%;
   width: 100%;
-
-  background-size: 310px 418px;
+  background-size: 310px 418px; 
   background-position: left top;
   transition: all 0.5s ease;
 }
@@ -121,3 +120,47 @@
 .card:hover .catagory {
   transform: translate(0);
 }
+
+
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 992px) {
+
+ }
+ 
+ /* Medium devices (landscape tablets, 768px and up) */
+ @media only screen and (max-width: 768px) {
+  .card{
+    width: 274px;
+    height: 375px;
+  }
+  .card .img1 {
+    background-size: 297px 396px;
+ }
+  .card .img2{
+    background-size: 297px 350px;
+  }
+}
+ /* Small devices (portrait tablets and large phones, 600px and up) */
+ /* @media only screen and (max-width: 650px) {
+   .hero-slide__item__content {
+     background-color: ;
+   }
+ } */
+ 
+ @media only screen and (max-width: 650px) {
+   
+ }
+ @media only screen and (min-width: 1024px) {
+  .card{
+    width: 263px;
+    height: 380px;
+  }
+  .card .img1{
+    background-size: 310px 382px;
+  }
+  .card .img2{
+    background-size: 310px 375px;
+  }
+ }
