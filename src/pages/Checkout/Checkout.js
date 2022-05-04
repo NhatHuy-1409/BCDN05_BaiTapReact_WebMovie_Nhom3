@@ -15,6 +15,8 @@ import imgBgHead from '../../assets/Images/42101_fantasy_superheroes_in_cinema.j
 import { history } from '../../App'
 import { NavLink } from 'react-router-dom'
 import { TOKEN, USER_LOGIN } from '../../util/setting/setting'
+import { message} from 'antd';
+
 function Checkout(props) {
 
   let dispatch = useDispatch()
@@ -119,7 +121,7 @@ function Checkout(props) {
           </div>
 
         </div>
-        <div className='col-span-12 md:col-span-4 lg:col-span-3 text-white p-3 rounded mt-3 mx-auto md:m-auto   w-full ssm:w-3/5  md:w-full' style={{ background: 'linear-gradient(242deg, rgba(252,69,60,1) 8%, rgba(159,47,46,1) 97%)' }}>
+        <div className='billCheckout col-span-12 md:col-span-4 lg:col-span-3 text-white p-3 rounded mt-3 mx-auto md:m-auto   w-full ssm:w-3/5  md:w-full' style={{ background: 'linear-gradient(242deg, rgba(252,69,60,1) 8%, rgba(159,47,46,1) 97%)' }}>
           <h3 className=' text-center text-2xl my-1 ssm:my-2  lg:my-5' style={{ color: '#fec802' }}>Welcome</h3>
           <hr />
           <h3 className='text-xl mt-5  text-center' style={{ color: 'black' }}>{tenPhim}</h3>
@@ -155,10 +157,15 @@ function Checkout(props) {
           </div>
           <div className='mt-5 '>
             <button className='w-full  block py-3 rounded font-bold	text-black' style={{ background: 'linear-gradient(320deg, rgba(254,200,2,1) 8%, rgba(255,138,0,1) 97%)' }} onClick={() => {
-              const thongTinDatVe = new ThongTinDatVe()
-              thongTinDatVe.maLichChieu = props.match.params.id
-              thongTinDatVe.danhSachVe = dsGheDangDat
-              dispatch(datVe(thongTinDatVe))
+              if (dsGheDangDat.length !== 0) {
+                const thongTinDatVe = new ThongTinDatVe()
+                thongTinDatVe.maLichChieu = props.match.params.id
+                thongTinDatVe.danhSachVe = dsGheDangDat
+                dispatch(datVe(thongTinDatVe))
+              }
+              else {
+                message.warning('Vui lòng đặt vé trước khi thanh toán !')
+              }
             }}>ĐẶT VÉ</button>
           </div>
         </div>
@@ -210,32 +217,32 @@ export default function (props) {
   const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer)
   const operations = <Fragment>
 
-  {
-    !_.isEmpty(userLogin) ? 
-   <Fragment>
-     <button onClick={() => {
-      history.push('/register')
-    }}>
-      <div className='flex items-center'>
-      <span>Hello!</span>
-      <span className='mx-2 background w-12 h-12 rounded rounded-full flex items-center justify-center font-bold bg-fuchsia-500 shadow-lg shadow-fuchsia-500/50'>  {userLogin.taiKhoan}</span>
-      </div>
-      
-    </button> 
-    <button 
-      className='rounded rounded-lg bg-cyan-700 w-20 px-2'
-      onClick={() =>{
-        localStorage.removeItem(USER_LOGIN)
-        localStorage.removeItem(TOKEN)
-        history.push('/home')
-        window.location.reload();
-      }}
-    >Đăng xuất</button>
-   </Fragment>  
-    
-    : ''
-  }
-</Fragment>
+    {
+      !_.isEmpty(userLogin) ?
+        <Fragment>
+          <button onClick={() => {
+            history.push('/register')
+          }}>
+            <div className='flex items-center'>
+              <span>Hello!</span>
+              <span className='mx-2 background w-12 h-12 rounded rounded-full flex items-center justify-center font-bold bg-fuchsia-500 shadow-lg shadow-fuchsia-500/50'>  {userLogin.taiKhoan}</span>
+            </div>
+
+          </button>
+          <button
+            className='rounded rounded-lg bg-cyan-700 w-20 px-2'
+            onClick={() => {
+              localStorage.removeItem(USER_LOGIN)
+              localStorage.removeItem(TOKEN)
+              history.push('/home')
+              window.location.reload();
+            }}
+          >Đăng xuất</button>
+        </Fragment>
+
+        : ''
+    }
+  </Fragment>
   let dispatch = useDispatch()
   return <div className='checkoutPage'>
     <Tabs tabBarExtraContent={operations} defaultActiveKey='1' activeKey={tabActive} onChange={(key) => {
@@ -250,7 +257,7 @@ export default function (props) {
       <TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
         <KetQuaDatVe {...props} />
       </TabPane>
-      <TabPane tab={<NavLink className='text-fuchsia-500 font-bold w-12' to='/home'><HomeOutlined/></NavLink>} key="3">
+      <TabPane tab={<NavLink className='text-fuchsia-500 font-bold w-12' to='/home'><HomeOutlined /></NavLink>} key="3">
 
       </TabPane>
     </Tabs>

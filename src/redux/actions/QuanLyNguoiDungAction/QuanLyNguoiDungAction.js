@@ -1,12 +1,13 @@
 import { history } from "../../../App"
 import { quanLyNguoiDungServices } from "../../../services/QuanLyNguoiDungServices"
 import { DANG_NHAP_ACTION, DANH_SACH_NGUOI_DUNG, SET_THONG_TIN_TAI_KHOAN_ACTION, THONG_TIN_NGUOI_DUNG } from "../../types/QuanLyNguoiDungtype"
+import { message} from 'antd';
 
 export const dangKy = (infoUser) => {
     return (dispatch2) => {
         let promise = quanLyNguoiDungServices.dangKy(infoUser)
         promise.then(() => {
-            alert('You registered successfully.');
+            message.success('You registered successfully.');
             history.push('/login')
         })
         promise.catch((error) => {
@@ -24,7 +25,7 @@ export const dangNhap = (infoLogin) => {
                     type: DANG_NHAP_ACTION,
                     thongtinDangNhap: result.data.content
                 })
-                alert('You have succesfully signed in our website.')
+                message.success('You have succesfully signed in our website.')
                 history.goBack()//chuyển hướng về trang trước đó
             }
         }

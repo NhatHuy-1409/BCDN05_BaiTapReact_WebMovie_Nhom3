@@ -71,6 +71,9 @@ thead tr th {
     box-shadow: 1px 3px 8px 7px rgb(40 40 40 / 80%);
     border-radius: 5px;
 }
+.billCheckout{
+    box-shadow: 1px 3px 8px 7px rgb(43 9 9 / 80%);
+}
 .checkoutPage .ant-tabs > .ant-tabs-nav,
 .ant-tabs > div > .ant-tabs-nav {
     z-index: 20;

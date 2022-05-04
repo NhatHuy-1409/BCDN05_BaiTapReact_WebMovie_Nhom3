@@ -9,6 +9,7 @@ import * as Yup from 'yup';
 import { dangNhap } from '../../redux/actions/QuanLyNguoiDungAction/QuanLyNguoiDungAction';
 import { TOKEN } from '../../util/setting/setting';
 import { Redirect } from 'react-router-dom';
+import { message} from 'antd';
 
 const eye = <FontAwesomeIcon icon={faEye} />;
 const eyeSlash = <FontAwesomeIcon icon={faEyeSlash} />;
@@ -30,7 +31,7 @@ export default function Login() {
         },
     })
     if (localStorage.getItem(TOKEN)) {
-        alert('You have succesfully signed in our website.');
+        message.success('You have succesfully signed in our website.');
         history.goBack()
         return null
     } else {
