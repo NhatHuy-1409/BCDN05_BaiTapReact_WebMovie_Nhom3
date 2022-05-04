@@ -33,7 +33,7 @@ export default function HomeCarousel(props) {
             <div className='hero-slide__item__content container'>
               <div className="hero-slide__item__content__info">
                 <h2 className="title">{item.tenPhim}</h2>
-                <div className="overview">{item.moTa}</div>
+                <div className="overview">{item.moTa ? item.moTa.slice(0, 160) : ''  }...</div>
                 <div className='btn-group py-8 mt-4 flex'>
 
                   <button 
@@ -79,6 +79,7 @@ export default function HomeCarousel(props) {
         spaceBetween={0}
         slidesPerView={1}
         grabCursor={true}
+        
       // autoplay={{ delay: 3000 }}
 
       // onSlideChange={() => console.log('slide change')}

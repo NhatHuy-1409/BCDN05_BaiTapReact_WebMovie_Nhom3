@@ -19,8 +19,8 @@ import { DANG_XUAT_TAI_KHOAN_ACTION } from '../../redux/types/QuanLyNguoiDungtyp
 // Hook language
 import { useTranslation } from 'react-i18next';
 
-
-
+import { US } from 'country-flag-icons/string/3x2'
+import Flags from "country-flag-icons/react/3x2";
 
 function handleButtonClick(e) {
   message.info('Click on left button.');
@@ -54,13 +54,15 @@ const menu = (
 export const DropdownMenu = () => (
   <Space wrap>
     <Dropdown overlay={menu}>
-      <Button className='ml-1'>
+      <Button className='mx-1'>
         <Space>
           {JSON.parse(localStorage.getItem(USER_LOGIN)).hoTen}
           <DownOutlined />
         </Space>
       </Button>
+      
     </Dropdown>
+    
   </Space>
 );
   // Language
@@ -69,6 +71,8 @@ export const DropdownMenu = () => (
   
 
 export default function Header(props) {
+  console.log(US);
+
   const { t, i18n } = useTranslation();
   const handleChange = (value) => {
     i18n.changeLanguage(value)
@@ -123,19 +127,21 @@ export default function Header(props) {
                 <UserOutlined className={`${style.anticon} items-center`} />
                 {/* <p className='mt-1 mb-0 pl-1 text-lg'>{JSON.parse(localStorage.getItem(USER_LOGIN)).hoTen}</p> */}
                 <DropdownMenu />
-
+                <Select defaultValue="ENG" style={{ width: 80, paddingTop:"3px", marginBottom:'-8px'}} onChange={handleChange} >
+                  <Option value="en">{US}</Option>
+                  <Option value="chi">CHI</Option>
+                  <Option value="vi">VI</Option>
+                </Select>
               </div> : <>
                 <NavLink to='/login' className=" link-item self-center py-3 rounded text-base font-bold uppercase" activeClassName='border-b-2   border-active'>{t('signin')}</NavLink>
                 <NavLink to='/register' className="btn first mx-8 font-bold" activeClassName='border-b-2  border-active'>{t('signup')}</NavLink>
-                <Select defaultValue="ENG" style={{ width: 80}} onChange={handleChange}>
+                <Select defaultValue="ENG" style={{ width: 80}} onChange={handleChange} >
                   <Option value="en">ENG</Option>
                   <Option value="chi">CHI</Option>
                   <Option value="vi">VI</Option>
                 </Select>
               </>
             }
-
-
           </div>
           {/* <button className="btnMenu p-4 lg:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 dark:text-coolGray-100">
@@ -143,9 +149,9 @@ export default function Header(props) {
             </svg>
           </button> */}
           <div className=" lg:hidden ">
-
             <Navbar />
           </div>
+          
         </div>
       </header>
 

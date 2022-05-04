@@ -6,7 +6,7 @@ import Film_Flip from '../Film/Film_Flip'
 import styleSlick from './MultipleRowSlick.module.css'
 import '../../components/button/button.css'
 import '../Modal/modalCustom.scss'
-
+import './multiplerowslick.css'
 
 const MultipleRowSlick = (props) => {
   let  {trailerUrl , setTrailerUrl} = props
@@ -24,7 +24,7 @@ const MultipleRowSlick = (props) => {
   return (
     <div>
 
-      <div className="pb-8">
+      <div className="img__cross pb-8">
       <img src='./Images/moviefilm-01.png' alt="" className='w-full h-32 ' />
       </div>
       <button
@@ -46,7 +46,7 @@ const MultipleRowSlick = (props) => {
         }}
       >Sắp Chiếu</button>
 
-      <div className="grid 2xl:grid-cols-4 gap-9 mt-4 md:grid-cols-2 sm:grid-cols-1">
+      <div className="grid sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4 gap-9 mt-4  ">
       {renderFilm()}
       </div>
     </div>
