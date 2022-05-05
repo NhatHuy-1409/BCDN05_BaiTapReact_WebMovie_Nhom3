@@ -28,7 +28,7 @@ function Checkout(props) {
   const { chiTietPhongVe, dsGheDangDat } = useSelector(state => state.QuanLyDatVeReducer)
   const { danhSachGhe, thongTinPhim } = chiTietPhongVe
   const { maLichChieu, tenCumRap, tenRap, diaChi, tenPhim, hinhAnh, ngayChieu, gioChieu } = thongTinPhim
-
+  const tongBill = 0;
   const renderSeats = () => {
     return danhSachGhe.map((ghe, index) => {
       let classGheVip = ghe.loaiGhe === 'Vip' ? 'gheVip' : '';
@@ -152,7 +152,8 @@ function Checkout(props) {
               {
                 dsGheDangDat.reduce((tongTien, ghe, index) => {
                   return tongTien += ghe.giaVe
-                }, 0)}
+                }, 0)
+                }
             </span>  VNĐ</p>
           </div>
           <div className='mt-5 '>
@@ -164,7 +165,7 @@ function Checkout(props) {
                 dispatch(datVe(thongTinDatVe))
               }
               else {
-                message.warning('Vui lòng đặt vé trước khi thanh toán !')
+                message.warning('Vui lòng chọn ghế trước khi đặt vé !')
               }
             }}>ĐẶT VÉ</button>
           </div>
@@ -225,12 +226,12 @@ export default function (props) {
           }}>
             <div className='flex items-center'>
               <span>Hello!</span>
-              <span className='mx-2 background w-12 h-12 rounded rounded-full flex items-center justify-center font-bold bg-fuchsia-500 shadow-lg shadow-fuchsia-500/50'>  {userLogin.taiKhoan}</span>
+              <span className='mx-2 background w-12 h-12  rounded-full flex items-center justify-center font-bold bg-fuchsia-500 shadow-lg shadow-fuchsia-500/50'>  {userLogin.taiKhoan}</span>
             </div>
 
           </button>
           <button
-            className='rounded rounded-lg bg-cyan-700 w-20 px-2'
+            className=' rounded-lg bg-cyan-700 w-20 px-2'
             onClick={() => {
               localStorage.removeItem(USER_LOGIN)
               localStorage.removeItem(TOKEN)
