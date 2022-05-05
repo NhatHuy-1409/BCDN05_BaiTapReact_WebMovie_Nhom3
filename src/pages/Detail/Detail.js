@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Button, CustomCard } from '@tsamantanis/react-glassmorphism';
 import '@tsamantanis/react-glassmorphism/dist/index.css';
 import '../../assets/circle.css';
-import style from './Detail.module.css'
+// import style from './Detail.module.css'
+import './Detail.css'
 import { Tabs, Radio, Space, Rate } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { type } from '@testing-library/user-event/dist/type';
@@ -31,22 +32,22 @@ export default function Detail(props) {
                     borderRadius={-10} // default border radius value is 10px
                >
                     <div className="grid grid-cols-12">
-                         <div className="col-span-4 col-start-4">
-                              <div className=" grid grid-cols-2">
-                                   <img src={filmDetail.hinhAnh} alt="" />
-                                   <div style={{ marginTop: '30%' }}>
+                         <div className="col-span-4 col-start-3">
+                              <div className=" grid grid-cols-2 detail_res">
+                                   <img className='' src={filmDetail.hinhAnh} alt="" />
+                                   <div className='detail_item'>
                                         <p> Ngày Chiếu: {moment(filmDetail.ngayKhoiChieu).format('DD.MM.YYYY')}</p>
-                                        <p className='text-2xl'>{filmDetail.tenPhim}</p>
+                                        <p className='text-2xl text-orange-500'>{filmDetail.tenPhim}</p>
                                         <p>{filmDetail.moTa}</p>
                                    </div>
                               </div>
 
                          </div>
-                         <div className="col-span-5">
-                              <h1 style={{ marginLeft: '5%' }} className="text-green-400 text-2xl"><Rate allowHalf value={filmDetail.danhGia / 2} style={{ color: '#78ed78', fontSize: 30 }}></Rate></h1>
+                         <div className="col-span-5 col-end-13 mt-20">
+                              <h1 style={{ marginLeft: '5%' }} className="text-yellow-400 text-2xl"><Rate allowHalf value={filmDetail.danhGia / 2} style={{ color: 'yellow', fontSize: 30 }}></Rate></h1>
                               <div className={`c100 p${filmDetail.danhGia * 10} big`}>
                                    <span>{filmDetail.danhGia * 10}%</span>
-                                   <div className="slice">
+                                   <div className="slice ">
                                         <div className="bar" />
                                         <div className="fill" />
                                    </div>
