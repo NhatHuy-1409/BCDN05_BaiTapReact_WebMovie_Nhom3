@@ -13,28 +13,28 @@ export default function Navbar() {
     <>
     
     <div className='navbar '>
-      <NavLink 
-        to='#'
+      <a 
+        
         className='menu-bars'
         onClick={showSidebar}
       >
         <faIcons.FaBars/>
-      </NavLink>
+      </a>
     </div>
     <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
       <ul className='nav-menu-items' onClick={showSidebar}>
         <li className='nav-menu-toggle'>
-          <NavLink to='#' className='menu-bars'>
+          <a className='menu-bars'>
             <AiIcons.AiOutlineClose/>
-          </NavLink>
+          </a>
         </li>
         {SidebarData.map((item, index) =>{
           return (
             <li key={index} className={item.cName}>
-              <NavLink to={item.path}> 
+              <a href={item.href}> 
                 {item.icon}
                 <span className='mr-4'>{item.title}</span>
-              </NavLink>
+              </a>
             </li>
           )
         })}

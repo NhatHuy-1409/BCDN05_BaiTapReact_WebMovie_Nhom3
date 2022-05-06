@@ -34,7 +34,7 @@ export default function Home(props) {
           </div> */}
         </div>
       </section>
-
+      <div id='rapSection'></div>
       <HomeMenu heThongRapChieu={heThongRapChieu} />
     </div>
   )

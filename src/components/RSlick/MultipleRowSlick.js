@@ -22,9 +22,8 @@ const MultipleRowSlick = (props) => {
   let activeClassSC = sapChieu === true ? 'active_Film' :'non_active_Film'
 
   return (
-    <div>
-
-      <div className="img__cross pb-8">
+    <div  id="moviesSection">
+      <div className="img__cross pb-8" >
       <img src='./Images/moviefilm-01.png' alt="" className='w-full h-32 ' />
       </div>
       <button
@@ -46,7 +45,7 @@ const MultipleRowSlick = (props) => {
         }}
       >Sắp Chiếu</button>
 
-      <div className="grid sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4 gap-9 mt-4  ">
+      <div className="grid sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4 gap-9 mt-4 ">
       {renderFilm()}
       </div>
     </div>

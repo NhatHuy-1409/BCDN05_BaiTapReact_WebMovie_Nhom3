@@ -2,9 +2,13 @@ import React, { useEffect, useState, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 
 import { getCarouselAction } from '../../../redux/actions/CarouselAction/CarouselAction';
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide} from "swiper/react";
+
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
+
+
+
 import SwiperCore, { Autoplay } from 'swiper';
 import './HomeCarousel.css'
 import { history } from '../../../App';
@@ -79,7 +83,7 @@ export default function HomeCarousel(props) {
         spaceBetween={0}
         slidesPerView={1}
         grabCursor={true}
-        
+
       // autoplay={{ delay: 3000 }}
 
       // onSlideChange={() => console.log('slide change')}

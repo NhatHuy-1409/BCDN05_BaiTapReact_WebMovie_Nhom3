@@ -18,7 +18,7 @@ export default function Film_Flip(props) {
 
   return (
     <>
-    <div className="card">
+    <div className="cardFilm">
       <div className="img1" style={{ backgroundImage: `url(${phim.hinhAnh})` }} />
       <div className="img2" style={{ backgroundImage: `url(${phim.hinhAnh})` }} />
       <div className="title">{phim.tenPhim}</div>

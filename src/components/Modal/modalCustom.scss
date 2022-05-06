@@ -72,3 +72,23 @@
   color: white;
   font-weight: bold;
 }
+
+
+
+@media only screen and (max-width: 1024px) {
+  .ant-modal-root .ant-modal-wrap .ant-modal{
+    width: 70% !important;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .ant-modal-root .ant-modal-wrap .ant-modal{
+    width: 95% !important;
+  }
+}
+
+// @media only screen and (max-width: 768px) {
+//   .ant-modal-root .ant-modal-wrap .ant-modal{
+//     width: 70% !important;
+//   }
+// }

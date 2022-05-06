@@ -29,3 +29,9 @@
 .header-movie .ant-select-single.ant-select-show-arrow .ant-select-selection-item{
   padding-right: 0;
 }
+
+.tabActive{
+  
+  border-color: rgba(255, 0, 128);
+  border-bottom-width: 2px;
+}
