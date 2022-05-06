@@ -6,19 +6,19 @@ import { GiTicket } from "react-icons/gi";
 export const SidebarData = [
   {
     title: 'Home',
-    path: '/',
+    href: '#',
     icon: <AiIcons.AiFillHome />,
     cName: 'nav-text'
   },
   {
     title: 'Movies',
-    path: '/movies',
+    href: '#moviesSection',
     icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text'
   },
   {
     title: 'Bookingtickets',
-    path: '/bookingtickets',
+    href: '#rapSection',
     icon: <GiTicket />,
     cName: 'nav-text'
   },

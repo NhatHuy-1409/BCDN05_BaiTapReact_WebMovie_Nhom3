@@ -20,7 +20,8 @@ import { DANG_XUAT_TAI_KHOAN_ACTION } from '../../redux/types/QuanLyNguoiDungtyp
 import { useTranslation } from 'react-i18next';
 
 import { US } from 'country-flag-icons/string/3x2'
-import Flags from "country-flag-icons/react/3x2";
+// scroll 
+import {Link} from 'react-scroll'
 
 function handleButtonClick(e) {
   message.info('Click on left button.');
@@ -81,6 +82,7 @@ export default function Header(props) {
   const [stateLogo, setStateLogo] = useState({
     logo: './Images/logo-01.png'
   })
+  
   const { logo } = stateLogo;
   useEffect(() => {
     let shrinkHeader = () => {
@@ -100,7 +102,7 @@ export default function Header(props) {
 
   return (
     <div>
-      <header ref={headerRef} className=" header-movie dark:bg-coolGray-800 dark:text-coolGray-100 shadow-xl	position: fixed w-full z-10 ">
+      <header ref={headerRef} id='header-movie' className=" header-movie dark:bg-coolGray-800 dark:text-coolGray-100 shadow-xl	position: fixed w-full z-10 ">
         <div className="container flex justify-between h-24 mx-auto">
           <a href="#" aria-label="Back to homepage" className="flex items-center ">
             {/* <img src="https://cybersoft.edu.vn/wp-content/uploads/2017/03/MIN-OP1.png" alt="" /> */}
@@ -109,15 +111,17 @@ export default function Header(props) {
           </a>
           <ul className="items-stretch hidden space-x-3 lg:flex mr-0">
             <li className="flex">
-              <NavLink to='/home' className="link-item flex text-lg font-bold items-center px-4 -mb-1 dark:border-transparentcolor-pri" activeClassName='border-b-2  border-active'>{t('home')}</NavLink>
+              <NavLink to='/home' className="link-item flex text-lg font-bold items-center px-4 -mb-1 dark:border-transparentcolor-pri">{t('home')}</NavLink>
+            </li>
+
+            <li className="flex" >
+            <Link  to="moviesSection" spy={true} smooth={true} className=" link-item flex text-lg font-bold items-center px-4 -mb-1 dark:border-transparent"   >{t('movies')}</Link>
+              {/* <a href='#moviesSection' className="link-item flex text-lg font-bold items-center px-4 -mb-1 dark:border-transparent   " ></a> */}
             </li>
 
             <li className="flex">
-              <NavLink to='/movies' className="link-item flex text-lg font-bold items-center px-4 -mb-1 dark:border-transparent   " activeClassName='border-b-2  border-active '>{t('movies')}</NavLink>
-            </li>
-
-            <li className="flex">
-              <NavLink to='/bookingtickets' className="link-item flex text-lg font-bold items-center px-4 -mb-1 dark:border-transparent   " activeClassName='border-b-2  border-active'>{t('bookingticket')}</NavLink>
+              <Link to='rapSection' spy={true} smooth={true} className="link-item flex text-lg font-bold items-center px-4 -mb-1 dark:border-transparent   " >{t('bookingticket')}</Link>
+              {/* <NavLink to='/bookingtickets' className="link-item flex text-lg font-bold items-center px-4 -mb-1 dark:border-transparent   " activeClassName='border-b-2  border-active'>{t('bookingticket')}</NavLink> */}
             </li>
 
           </ul>

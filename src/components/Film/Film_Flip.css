@@ -1,5 +1,5 @@
 
-.card {
+.cardFilm {
   position: relative;
   overflow: hidden;
   width: 310px;
@@ -12,7 +12,7 @@
   transition: all 0.5s ease-in-out;
 }
 
-.card .img1 {
+.cardFilm .img1 {
   position: absolute;
   top: 0;
   left: 0;
@@ -23,7 +23,7 @@
   transition: all 0.5s ease;
 }
 
-.card .img2 {
+.cardFilm .img2 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -35,7 +35,7 @@
   transition: all 0.5s ease;
 }
 
-.card .title {
+.cardFilm .title {
   height: 22%;
   width: 100%;
   font-size: 20px;
@@ -70,14 +70,14 @@
   transition: all 0.5s ease;
   
 }
-.card:hover .btn__play{
+.cardFilm:hover .btn__play{
   opacity: 1;
   top: 50%;
 }
 
 
 
-.card .views {
+.cardFilm .views {
   position: absolute;
   left: 10px;
   top: 50%;
@@ -92,32 +92,32 @@
   transition: all 0.5s ease;
 }
 
-.card:hover .img1 {
+.cardFilm:hover .img1 {
   transform: rotate(10deg) scale(1) translate(20px, 0);
   /* transform-origin: 300px 300px; */
   opacity: 0.5;
   transition: all 0.5s ease
 }
 
-.card:hover .img2 {
+.cardFilm:hover .img2 {
   transform: rotate(90deg) translate(0px, 150px);
   transform-origin: -20px 200px;
 }
-.card:hover .title{
+.cardFilm:hover .title{
   bottom: 15%;
   box-shadow: none;
 }
-.card:hover .btn__card{
+.cardFilm:hover .btn__card{
   opacity: 1;
   bottom: 5%;
 }
-.card:hover .text {
+.cardFilm:hover .text {
   opacity: 0.8;
   transform: rotate(0deg);
 }
 
-.card:hover .views,
-.card:hover .catagory {
+.cardFilm:hover .views,
+.cardFilm:hover .catagory {
   transform: translate(0);
 }
 
@@ -131,14 +131,14 @@
  
  /* Medium devices (landscape tablets, 768px and up) */
  @media only screen and (max-width: 768px) {
-  .card{
+  .cardFilm{
     width: 274px;
     height: 375px;
   }
-  .card .img1 {
+  .cardFilm .img1 {
     background-size: 297px 396px;
  }
-  .card .img2{
+  .cardFilm .img2{
     background-size: 297px 350px;
   }
 }
@@ -153,14 +153,14 @@
    
  }
  @media only screen and (min-width: 1024px) {
-  .card{
+  .cardFilm{
     width: 263px;
     height: 380px;
   }
-  .card .img1{
+  .cardFilm .img1{
     background-size: 310px 382px;
   }
-  .card .img2{
+  .cardFilm .img2{
     background-size: 310px 375px;
   }
  }
