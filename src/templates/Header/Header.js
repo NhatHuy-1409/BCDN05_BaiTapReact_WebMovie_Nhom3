@@ -131,15 +131,15 @@ export default function Header(props) {
                 <UserOutlined className={`${style.anticon} items-center`} />
                 {/* <p className='mt-1 mb-0 pl-1 text-lg'>{JSON.parse(localStorage.getItem(USER_LOGIN)).hoTen}</p> */}
                 <DropdownMenu />
-                <Select defaultValue="ENG" style={{ width: 80, paddingTop:"3px", marginBottom:'-8px'}} onChange={handleChange} >
-                  <Option value="en">{US}</Option>
+                <Select defaultValue="en" style={{ width: 80, paddingTop:"3px", marginBottom:'-8px'}} onChange={handleChange} >
+                  <Option value="en">ENG</Option>
                   <Option value="chi">CHI</Option>
                   <Option value="vi">VI</Option>
                 </Select>
               </div> : <>
                 <NavLink to='/login' className=" link-item self-center py-3 rounded text-base font-bold uppercase" activeClassName='border-b-2   border-active'>{t('signin')}</NavLink>
                 <NavLink to='/register' className="btn first mx-8 font-bold" activeClassName='border-b-2  border-active'>{t('signup')}</NavLink>
-                <Select defaultValue="ENG" style={{ width: 80}} onChange={handleChange} >
+                <Select defaultValue="en" style={{ width: 80}} onChange={handleChange} >
                   <Option value="en">ENG</Option>
                   <Option value="chi">CHI</Option>
                   <Option value="vi">VI</Option>
