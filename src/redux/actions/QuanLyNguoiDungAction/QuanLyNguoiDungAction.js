@@ -3,19 +3,35 @@ import { quanLyNguoiDungServices } from "../../../services/QuanLyNguoiDungServic
 import { DANG_NHAP_ACTION, DANH_SACH_NGUOI_DUNG, SET_THONG_TIN_TAI_KHOAN_ACTION, THONG_TIN_NGUOI_DUNG } from "../../types/QuanLyNguoiDungtype"
 import { message} from 'antd';
 
+// export const dangKy = (infoUser) => {
+//     return (dispatch2) => {
+//         let promise = quanLyNguoiDungServices.dangKy(infoUser)
+//         promise.then(() => {
+//             message.success('You registered successfully.');
+//             history.push('/login')
+//         })
+//         promise.catch((error) => {
+//             message.error('Đăng ký không thành công');
+
+//             console.log(error);
+//         })
+//     }
+// }
+
 export const dangKy = (infoUser) => {
-    return (dispatch2) => {
-        let promise = quanLyNguoiDungServices.dangKy(infoUser)
-        promise.then(() => {
-            message.success('You registered successfully.');
-            history.push('/login')
-        })
-        promise.catch((error) => {
-            console.log(error);
-        })
+    return async (dispatch) => {
+        try {
+            var result = await quanLyNguoiDungServices.dangKy(infoUser)
+            if (result.data.statusCode === 200) {
+                message.success('You registered successfully.')
+                history.push('/login')
+            }       
+        }
+        catch (error) {
+            message.error(`${error.response.data.content}`);
+        }
     }
 }
-
 export const dangNhap = (infoLogin) => {
     return async (dispatch) => {
         try {
